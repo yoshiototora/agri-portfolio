@@ -1,10 +1,22 @@
 /* ==========================================================================
-   PORTFOLIO INTERACTION & ACCESSIBILITY LOGIC (UPDATED)
+   PORTFOLIO INTERACTION & ACCESSIBILITY LOGIC (UPDATED WITH A11Y & STORAGE)
    ========================================================================== */
 
-let lastActiveElement = null; // Store last active element to return focus after modal closes
+let previousFocusedElement = null;
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize accessibility settings from localStorage
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  const savedSize = localStorage.getItem('size') || 'normal';
+  const savedFont = localStorage.getItem('font') || 'standard';
+
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  document.documentElement.setAttribute('data-size', savedSize);
+  document.documentElement.setAttribute('data-font', savedFont);
+
+  // Sync button active states
+  syncAccessibilityUI(savedTheme, savedSize, savedFont);
+
   // Initialize Lucide Icons
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();
@@ -18,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let current = '';
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
-      if (pageYOffset >= (sectionTop - 150)) {
+      if (window.pageYOffset >= (sectionTop - 150)) {
         current = section.getAttribute('id');
       }
     });
@@ -34,12 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Modal outside click listener
   window.addEventListener('click', (event) => {
     if (event.target.classList.contains('modal')) {
-      event.target.style.display = 'none';
-      document.body.style.overflow = 'auto';
-      if (lastActiveElement) {
-        lastActiveElement.focus();
-        lastActiveElement = null;
-      }
+      closeModal(event.target.id);
     }
   });
 
@@ -55,48 +62,82 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Keyboard navigation support for work-cards
+  // Keyboard navigation for work cards (Accessibility)
   const workCards = document.querySelectorAll('.work-card');
   workCards.forEach(card => {
     card.addEventListener('keydown', (event) => {
       if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault(); // Prevent page scroll on Space key
-        card.click();
+        event.preventDefault();
+        const onclickStr = card.getAttribute('onclick');
+        if (onclickStr) {
+          const match = onclickStr.match(/openModal\('([^']+)'\)/);
+          if (match && match[1]) {
+            openModal(match[1]);
+          }
+        }
       }
     });
   });
 
-  // Restore accessibility settings from localStorage
-  const savedSize = localStorage.getItem('ud-size') || 'normal';
-  const savedFont = localStorage.getItem('ud-font') || 'standard';
-  const savedTheme = localStorage.getItem('ud-theme') || 'light';
-
-  changeSize(savedSize);
-  changeFont(savedFont);
-  
-  document.documentElement.setAttribute('data-theme', savedTheme);
-  const themeIcon = document.getElementById('theme-icon');
-  if (themeIcon) {
-    if (savedTheme === 'dark') {
-      themeIcon.setAttribute('data-lucide', 'sun');
-    } else {
-      themeIcon.setAttribute('data-lucide', 'moon');
+  // Focus trap for modals
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Tab') {
+      const activeModal = document.querySelector('.modal[style*="display: block"]');
+      if (activeModal) {
+        const focusableElements = activeModal.querySelectorAll('button, [href], input, select, textarea, [tabindex="0"]');
+        if (focusableElements.length > 0) {
+          const firstElement = focusableElements[0];
+          const lastElement = focusableElements[focusableElements.length - 1];
+          
+          if (event.shiftKey) {
+            if (document.activeElement === firstElement) {
+              lastElement.focus();
+              event.preventDefault();
+            }
+          } else {
+            if (document.activeElement === lastElement) {
+              firstElement.focus();
+              event.preventDefault();
+            }
+          }
+        }
+      }
     }
-    if (typeof lucide !== 'undefined') {
-      lucide.createIcons();
-    }
-  }
+  });
 
   // Initialize Shadow Simulation at 12:00
   simulateShadow(12);
 });
+
+// UI Sync Helper
+function syncAccessibilityUI(theme, size, font) {
+  // Size buttons
+  document.querySelectorAll('[id^="btn-size-"]').forEach(btn => btn.classList.remove('active'));
+  const sizeBtn = document.getElementById(`btn-size-${size}`);
+  if (sizeBtn) sizeBtn.classList.add('active');
+
+  // Font buttons
+  document.querySelectorAll('[id^="btn-font-"]').forEach(btn => btn.classList.remove('active'));
+  const fontBtn = document.getElementById(`btn-font-${font}`);
+  if (fontBtn) fontBtn.classList.add('active');
+
+  // Theme toggle icon
+  const themeIcon = document.getElementById('theme-icon');
+  if (themeIcon) {
+    if (theme === 'dark') {
+      themeIcon.setAttribute('data-lucide', 'sun');
+    } else {
+      themeIcon.setAttribute('data-lucide', 'moon');
+    }
+  }
+}
 
 /* ==================== 1. ACCESSIBILITY CONTROLS ==================== */
 
 // Change Font Size (Applied to HTML document element for rem scaling)
 function changeSize(size) {
   document.documentElement.setAttribute('data-size', size);
-  localStorage.setItem('ud-size', size);
+  localStorage.setItem('size', size);
   
   // Update Active Button State
   document.querySelectorAll('[id^="btn-size-"]').forEach(btn => {
@@ -109,7 +150,7 @@ function changeSize(size) {
 // Change Font Type (Applied to HTML document element)
 function changeFont(font) {
   document.documentElement.setAttribute('data-font', font);
-  localStorage.setItem('ud-font', font);
+  localStorage.setItem('font', font);
   
   // Update Active Button State
   document.querySelectorAll('[id^="btn-font-"]').forEach(btn => {
@@ -124,7 +165,7 @@ function toggleTheme() {
   const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
   const newTheme = currentTheme === 'light' ? 'dark' : 'light';
   document.documentElement.setAttribute('data-theme', newTheme);
-  localStorage.setItem('ud-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
   
   // Update Theme Icon
   const themeIcon = document.getElementById('theme-icon');
@@ -146,11 +187,11 @@ function toggleTheme() {
 function openModal(id) {
   const modal = document.getElementById(id);
   if (modal) {
-    lastActiveElement = document.activeElement; // Track the element that triggered the modal
+    previousFocusedElement = document.activeElement;
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
     
-    // Focus the close button for screen reader convenience
+    // Focus the close button or first focusable element
     const closeBtn = modal.querySelector('.close-btn');
     if (closeBtn) {
       closeBtn.focus();
@@ -164,10 +205,9 @@ function closeModal(id) {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto'; // Restore scrolling
     
-    // Restore focus to the element that triggered the modal
-    if (lastActiveElement) {
-      lastActiveElement.focus();
-      lastActiveElement = null;
+    // Restore focus
+    if (previousFocusedElement) {
+      previousFocusedElement.focus();
     }
   }
 }
@@ -208,7 +248,7 @@ function simulateGrowth() {
   } else if (currentAccumulatedTemp >= 350) {
     plantIcon.textContent = '🌿'; // Growth phase 2
     plantIcon.style.transform = 'scale(1.2)';
-    statusMsg.textContent = '順調に育っています！つぼみが膨らみ始めました。';
+    statusMsg.textContent = '順順に育っています！つぼみが膨らみ始めました。';
   } else if (currentAccumulatedTemp >= 220) {
     plantIcon.textContent = '🌱'; // Growth phase 1
     plantIcon.style.transform = 'scale(1.1)';
@@ -285,7 +325,7 @@ function simulateShadow(hour) {
   statA.classList.remove('shadowed');
   statB.classList.remove('shadowed');
   statC.classList.remove('shadowed');
-
+  
   if (h === 12) {
     skew = 0;
     shadowWidth = 20; // Short shadow directly under

@@ -1991,18 +1991,14 @@ button.close-btn {
   text-align: right;
 }
 
-/* Accessibility Focus States */
-.work-card:focus-visible {
-  outline: 3px solid var(--brand-primary);
+/* Accessibility: Focus styles for keyboard navigation */
+.work-card:focus {
+  outline: 3px solid var(--accent-color);
   outline-offset: 4px;
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
 }
 
-.close-btn:focus-visible {
-  outline: 3px solid var(--brand-primary);
-  outline-offset: 2px;
-}
-
-/* Reduced Motion Settings */
+/* Accessibility: Reduce motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
