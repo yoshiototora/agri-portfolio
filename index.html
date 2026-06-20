@@ -58,10 +58,10 @@
   <!-- Navigation Menu -->
   <nav class="side-menu">
     <a href="#hero" class="menu-item active" title="トップ"><i data-lucide="home"></i><span>Top</span></a>
-    <a href="#highlights" class="menu-item" title="ハイライト"><i data-lucide="sparkles"></i><span>Highlights</span></a>
-    <a href="#works" class="menu-item" title="実績"><i data-lucide="briefcase"></i><span>Works</span></a>
-    <a href="#ideas" class="menu-item" title="農業IT構想"><i data-lucide="lightbulb"></i><span>AgriTech</span></a>
-    <a href="#about" class="menu-item" title="原体験・経歴"><i data-lucide="user"></i><span>About</span></a>
+    <a href="#about" class="menu-item" title="原体験・ビジョン"><i data-lucide="user"></i><span>About</span></a>
+    <a href="#ideas" class="menu-item" title="農業体験と解決アイデア"><i data-lucide="lightbulb"></i><span>AgriTech</span></a>
+    <a href="#highlights" class="menu-item" title="主な成果"><i data-lucide="sparkles"></i><span>Highlights</span></a>
+    <a href="#works" class="menu-item" title="実績詳細"><i data-lucide="briefcase"></i><span>Works</span></a>
     <a href="#skills" class="menu-item" title="技術スタック"><i data-lucide="code-2"></i><span>Skills</span></a>
     <a href="#contact" class="menu-item" title="リンク"><i data-lucide="link"></i><span>Links</span></a>
   </nav>
@@ -79,6 +79,9 @@
           現場で学び、<br>
           <span style="color: var(--brand-primary); padding: 0;">技術で農業を支える。</span>
         </h1>
+        <p class="hero-tagline" style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 1rem; border-left: 4px solid var(--brand-primary); padding-left: 0.8rem; line-height: 1.4;">
+          現場で課題を発見し、AI・Web・モバイル技術を用いて解決策を形にする開発者
+        </p>
         <p class="hero-subtitle">
           キウイ農家での農作業体験から得た課題意識を原点に、AIやアプリといった技術の理解を活かして、誰もが無理なく使い続けられる農業の仕組みづくりを目指します。
         </p>
@@ -133,142 +136,147 @@
     </div>
   </section>
 
-  <!-- ==================== HIGHLIGHTS SECTION ==================== -->
-  <section id="highlights" class="section section-alt">
+  <!-- ==================== ABOUT ME SECTION ==================== -->
+  <section id="about" class="section">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Highlights</span>
-        <h2 class="section-title">これまでの主な成果</h2>
-        <p class="section-description">ソフトウェア開発、3D表現、AI技術を活用し、社会や利用者の課題解決に取り組んできました。</p>
+      
+      <!-- 2-Column Layout for Timeline & Sidebar -->
+      <div class="about-wrapper">
+        <!-- Left Side: timeline story -->
+        <div class="about-text-content">
+          <span class="section-tag">Background & Vision</span>
+          <h2 class="section-title">現場から課題を見つけ、仕組みで解決する</h2>
+          
+          <div class="vision-highlight-box">
+            <p>私は、現場に足を運び、利用者と運用者の両方が無理なく使い続けられる仕組みをつくることを大切にしています。システムの性能だけでなく、実際に使われ続けることを重視し、課題の発見から運用まで見据えた開発に取り組んでいます。</p>
+          </div>
+
+          <div class="story-timeline">
+            <div class="timeline-item">
+              <div class="timeline-marker"><i data-lucide="compass"></i></div>
+              <div class="timeline-content">
+                <h4>原体験：キウイ農家での農作業体験</h4>
+                <p>
+                  2026年5月、農業のデイワークに参加し、キウイ農家での作業を経験しました。そこで、消費者からは見えにくい多くの地道な工程があることを知りました。
+                </p>
+                <p class="nested-story">
+                  <strong>受粉作業：</strong> 受粉作業では、雄花から採取したわずか数グラムの花粉を一つひとつの雌花へ手作業で噴射する工程を経験しました。消費者からは見えない地道な作業が品質を支えていることを知り、生産者の負担を軽減する仕組みづくりの重要性を実感しました。この体験をきっかけに、後に自分でも家庭菜園を始めて野菜を育てるようになりました。
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker"><i data-lucide="alert-triangle"></i></div>
+              <div class="timeline-content">
+                <h4>課題の認識：人手不足の深刻さとアプリの使いづらさ</h4>
+                <p>
+                  お世話になった高齢のご夫婦農家は、人手不足のためデイワークを利用していました。しかし、直前のキャンセルが多く、「経験の有無よりも、予定通り人が来てくれること自体がありがたい」という言葉が特に印象に残っています。人手不足が単なる効率の問題ではなく、生産活動そのものに影響する深刻な課題であることを実感しました。
+                </p>
+                <p class="nested-story">
+                  また、「アプリの文字が小さくて見づらい」という声を聞き、機能を増やすだけでなく、利用者の年齢や利用環境に合わせた設計の重要性を実感しました。
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker"><i data-lucide="check-circle-2"></i></div>
+              <div class="timeline-content">
+                <h4>ビジョン</h4>
+                <p>
+                  農業体験を通じて、課題は利用者の近くにあることを学びました。私は利用者の声を起点に課題を発見し、テクノロジーによって解決策を仕組みとして実装することで価値を生み出したいと考えています。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- アグリメディアで貢献したいこと -->
+          <div class="why-agrimedia-box glass-card-accent" style="margin-top: 2rem; padding: 1.5rem; border-radius: var(--border-radius-md); border-left: 4px solid var(--accent-color);">
+            <h4 style="font-size: 1rem; color: var(--accent-color); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+              <i data-lucide="heart"></i> アグリメディアで実現したいこと
+            </h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+              アグリメディアでは、利用者のリアルな課題を把握し、利用者と運用者の双方にとって使いやすいサービスづくりに取り組みたいと考えています。これまでのアプリ開発や研究活動で培った課題発見力と実装力を活かし、初心者やシニア層でも迷わず利用できるサービス設計や、運用負荷を減らす仕組みづくりに携わりたいと考えています。サービスの企画から改善まで一貫して関わりながら、本当に使われる仕組みを形にしていきたいです。
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Side: Sidebar (RESTORED TO SIDEBAR, POSITIONED LOWER) -->
+        <div class="about-sidebar">
+          <div class="stat-card glass-card">
+            <span class="stat-number">38%</span>
+            <span class="stat-label">日本の食料自給率（カロリーベース）</span>
+            <p class="stat-detail">主要先進国の中で最低水準にあり、食の持続可能性は深刻な課題となっています。</p>
+            <span class="stat-source">出典：農林水産省「食料自給率表」（令和5年度）</span>
+          </div>
+          <div class="stat-card glass-card">
+            <span class="stat-number">68.4歳</span>
+            <span class="stat-label">基幹的農業従事者の平均年齢</span>
+            <p class="stat-detail">高齢化が急速に進む中、人手不足と「使いやすいユニバーサルUI」の需要が急増しています。</p>
+            <span class="stat-source">出典：農林水産省「農業構造動態調査」（2023年）</span>
+          </div>
+          <div class="quote-card glass-card-accent">
+            <div class="quote-card-content">
+              <span class="quote-decorator">“</span>
+              <p>「現場で見つけた課題を、テクノロジーで形にし続ける。」</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="highlights-grid">
-        <div class="highlight-item-card glass-card">
-          <div class="hl-icon"><i data-lucide="trophy"></i></div>
-          <h3>最優秀賞（全国1位）</h3>
-          <p>警察庁主催コンテストにて、全国約50作品の中から第1位（サイバー警察局長賞）を受賞。</p>
+      <!-- ==================== EDUCATION & EXPERIENCE (Full Width / Stacked below 2-columns) ==================== -->
+      <div class="profile-details-section">
+        <h3 class="subsection-title"><i data-lucide="graduation-cap"></i> 学歴・職歴</h3>
+        <div class="profile-tables-vertical-stack">
+          
+          <!-- Education Table (Wide) -->
+          <div class="table-box glass-card wide-table-box">
+            <h4>学歴</h4>
+            <div class="responsive-table-wrapper">
+              <table class="profile-table">
+                <thead>
+                  <tr><th>年月</th><th>内容</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>2022年3月</td><td>福岡県立福岡中央高等学校 卒業</td></tr>
+                  <tr><td>2022年4月</td><td>長崎大学 情報データ科学部 情報データ科学科 入学</td></tr>
+                  <tr><td>2026年3月</td><td>長崎大学 情報データ科学部 情報データ科学科 卒業</td></tr>
+                  <tr><td>2026年4月</td><td>長崎大学大学院 総合生産科学研究科 入学（修了見込：2028年3月）</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Experience Table (Wide) -->
+          <div class="table-box glass-card wide-table-box">
+            <h4>職歴（アルバイト）</h4>
+            <div class="responsive-table-wrapper">
+              <table class="profile-table">
+                <thead>
+                  <tr><th>年月</th><th>内容</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>2022年11月 〜 2025年1月</td><td>株式会社牛右衛門 酛蔵庄屋（ホールスタッフ）</td></tr>
+                  <tr><td>2023年10月 〜 現在</td><td>マルニ味噌ラーメン（ホール＆キッチン）</td></tr>
+                  <tr><td>2026年2月 〜 現在</td><td>LITALICOワンダー（プログラミングインストラクター）</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-        <div class="highlight-item-card glass-card">
-          <div class="hl-icon"><i data-lucide="globe"></i></div>
-          <h3>App Store 世界配信</h3>
-          <p>個人開発のiOSアプリを配信中。ユーザーの声を反映した機能追加や、使いやすさの改善を推進。</p>
-        </div>
-        <div class="highlight-item-card glass-card">
-          <div class="hl-icon"><i data-lucide="activity"></i></div>
-          <h3>VR酔い低減の検証</h3>
-          <p>AIを活用した動的映像合成システムを開発。被験者実験を通じてVR酔いの低減効果を検証中。</p>
-        </div>
-        <div class="highlight-item-card glass-card">
-          <div class="hl-icon"><i data-lucide="check-square"></i></div>
-          <h3>大学公式システム採用</h3>
-          <p>案内用Webアプリの有志開発を主導。展示データ更新の運用負荷を削減し、公式採用へ。</p>
+        
+        <div class="experience-insight-box">
+          <h5>💡 アルバイトから得た「農業×IT」へ繋がるアセット</h5>
+          <ul>
+            <li><strong>飲食店アルバイト（牛右衛門・マルニ味噌ラーメン）</strong><br>
+              飲食店では接客や店舗運営を通じて、食材が生産者から消費者へ届く流れの一端を経験しました。また、限られた人数で店舗を運営する大変さや、サービス品質を維持するためのオペレーションの重要性を学びました。この経験から、実際に働く人の視点を意識して課題を考える姿勢が身につきました。
+            </li>
+            <li><strong>LITALICOワンダー</strong><br>
+              MinecraftやBlenderを用いた授業を担当し、子どもたち一人ひとりの理解度に合わせて教え方を工夫してきました。専門的な内容でも相手の立場に立って分かりやすく伝える力を培うことができました。この経験は、新しい技術やサービスを利用者に届ける際のコミュニケーションや、利用者の本音を引き出す場面で活かせると考えています。
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ==================== WORKS SECTION ==================== -->
-  <section id="works" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Works & Research</span>
-        <h2 class="section-title">これまでの実績</h2>
-        <p class="section-description">
-          利用者の使いやすさに加え、運営者の運用コスト削減や引き継ぎ体制まで考慮して設計・開発したプロジェクトです。
-        </p>
-      </div>
-
-      <div class="works-grid">
-        <!-- Work 1 -->
-        <div class="card work-card" onclick="openModal('modal-oc')">
-          <div class="card-badge">大学公認プロジェクト / 有志チーム開発</div>
-          <div class="card-icon"><i data-lucide="users"></i></div>
-          <h3 class="card-title">1. 長崎大学オープンキャンパス公式Webアプリ</h3>
-          <p class="card-text">
-            高校生向けマップ連動展示検索アプリの開発。データ更新を容易にするスプレッドシート連携機能の開発や、後輩たちに引き継げる運用体制の構築を進めています。
-          </p>
-          <div class="card-tags">
-            <span class="status-badge" style="background: rgba(16, 185, 129, 0.12); color: var(--brand-primary); border: 1px solid rgba(16, 185, 129, 0.2); padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 800; font-size: 0.65rem; margin-bottom: 0.3rem;">進行中（運用引継・特設サイト準備中）</span>
-            <span>React</span>
-            <span>Next.js</span>
-            <span>TypeScript</span>
-            <span>スプレッドシート</span>
-          </div>
-          <span class="card-link">詳細プロセスを見る <i data-lucide="chevron-right"></i></span>
-        </div>
-
-        <!-- Work 2 -->
-        <div class="card work-card" onclick="openModal('modal-cg')">
-          <div class="card-badge">防犯ボランティア / チームCG制作</div>
-          <div class="card-icon"><i data-lucide="award"></i></div>
-          <h3 class="card-title">2. フィッシング詐欺防止 3DCGアニメーション</h3>
-          <p class="card-text">
-            若年層向けのフィッシング詐欺啓発3D映像。本物そっくりの偽サイトを用いた演出や、チームディレクションにより全国1位を受賞。
-          </p>
-          <div class="card-tags">
-            <span class="status-badge" style="background: rgba(5, 150, 105, 0.12); color: var(--brand-secondary); border: 1px solid rgba(5, 150, 105, 0.2); padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 800; font-size: 0.65rem; margin-bottom: 0.3rem;">完了（全国1位最優秀賞）</span>
-            <span>Blender 3D</span>
-            <span>Premiere Pro</span>
-            <span>ディレクション</span>
-          </div>
-          <span class="card-link">詳細プロセスを見る <i data-lucide="chevron-right"></i></span>
-        </div>
-
-        <!-- Work 3 -->
-        <div class="card work-card" onclick="openModal('modal-res')">
-          <div class="card-badge">大学院研究 / 修士課程（個人研究）</div>
-          <div class="card-icon"><i data-lucide="shield-alert"></i></div>
-          <h3 class="card-title">3. AIを用いた360度VR映像の視覚的快適性向上</h3>
-          <p class="card-text">
-            360度立体VR映像における「VR酔い」を低減する研究。AIによる映像の自動補正プログラムや、3Dプリンターを用いた専用カメラ固定台の開発・検証を行う。
-          </p>
-          <div class="card-tags">
-            <span class="status-badge" style="background: rgba(16, 185, 129, 0.12); color: var(--brand-primary); border: 1px solid rgba(16, 185, 129, 0.2); padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 800; font-size: 0.65rem; margin-bottom: 0.3rem;">研究進行中（2028年3月修了見込）</span>
-            <span>Python</span>
-            <span>PyTorch</span>
-            <span>OpenCV</span>
-            <span>Unity</span>
-            <span>3Dプリンター</span>
-          </div>
-          <span class="card-link">研究の詳細とリポジトリを見る <i data-lucide="chevron-right"></i></span>
-        </div>
-
-        <!-- Work 4 -->
-        <div class="card work-card" onclick="openModal('modal-grad')">
-          <div class="card-badge">学部研究 / 卒業論文（個人研究）</div>
-          <div class="card-icon"><i data-lucide="scan"></i></div>
-          <h3 class="card-title">4. 簡易360°全周囲3D映像シームレス合成</h3>
-          <p class="card-text">
-            安価なカメラ3台を用いて自然な360度立体VR映像を合成する手法。AIによる深度推定を用いた歪み補正アルゴリズムと、固定土台を開発。
-          </p>
-          <div class="card-tags">
-            <span class="status-badge" style="background: rgba(5, 150, 105, 0.12); color: var(--brand-secondary); border: 1px solid rgba(5, 150, 105, 0.2); padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 800; font-size: 0.65rem; margin-bottom: 0.3rem;">完了（卒業論文発表済）</span>
-            <span>Python</span>
-            <span>PyTorch</span>
-            <span>OpenCV</span>
-            <span>3Dプリンター</span>
-          </div>
-          <span class="card-link">研究の詳細とリポジトリを見る <i data-lucide="chevron-right"></i></span>
-        </div>
-
-        <!-- Work 5 -->
-        <div class="card work-card" onclick="openModal('modal-hs')">
-          <div class="card-badge">個人開発 / iOSアプリ配信</div>
-          <div class="card-icon"><i data-lucide="smartphone"></i></div>
-          <h3 class="card-title">5. iOSアプリ「HabitSpark」のデータモデル再設計</h3>
-          <p class="card-text">
-            ユーザー要望である「遡り入力」を実現するためのデータ構造の刷新。既存データを壊さずに安全に移行するプログラムを設計。
-          </p>
-          <div class="card-tags">
-            <span class="status-badge" style="background: rgba(5, 150, 105, 0.12); color: var(--brand-secondary); border: 1px solid rgba(5, 150, 105, 0.2); padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 800; font-size: 0.65rem; margin-bottom: 0.3rem;">App Store公開中（アップデート保守継続）</span>
-            <span>Swift</span>
-            <span>SwiftUI</span>
-            <span>SwiftData</span>
-            <span>個人開発</span>
-          </div>
-          <span class="card-link">詳細プロセスを見る <i data-lucide="chevron-right"></i></span>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -277,9 +285,9 @@
     <div class="container">
       <div class="section-header">
         <span class="section-tag">AgriTech Prototyping</span>
-        <h2 class="section-title">農業×ITのプロジェクト構想</h2>
+        <h2 class="section-title">農業体験から見えた課題と、その解決に向けたアイデア</h2>
         <p class="section-description">
-          農作業体験の後、自身で家庭菜園を始めて直面した「何をどう育てたらいいか」という初心者の悩みを、これまでの開発実績（iOS・3D・AI）を活かして解決する構想です。
+          農作業体験の後、自身で家庭菜園を始めて直面した「何をどう育てたらいいか」という初心者の悩みを、これまでの開発実績（iOS・3D・AI）を活かして解決するための具体的なアイデアです。
         </p>
       </div>
 
@@ -461,152 +469,147 @@
     </div>
   </section>
 
-  <!-- ==================== ABOUT ME SECTION ==================== -->
-  <section id="about" class="section">
+  <!-- ==================== HIGHLIGHTS SECTION ==================== -->
+  <section id="highlights" class="section">
     <div class="container">
-      
-      <!-- 2-Column Layout for Timeline & Sidebar -->
-      <div class="about-wrapper">
-        <!-- Left Side: timeline story -->
-        <div class="about-text-content">
-          <span class="section-tag">Background & Vision</span>
-          <h2 class="section-title">現場から課題を見つけ、仕組みで解決する</h2>
-          
-          <div class="vision-highlight-box">
-            <p>私は、現場に足を運び、利用者と運用者の両方が無理なく使い続けられる仕組みをつくることを大切にしています。システムの性能だけでなく、実際に使われ続けることを重視し、課題の発見から運用まで見据えた開発に取り組んでいます。</p>
-          </div>
-
-          <div class="story-timeline">
-            <div class="timeline-item">
-              <div class="timeline-marker"><i data-lucide="compass"></i></div>
-              <div class="timeline-content">
-                <h4>原体験：キウイ農家での農作業体験</h4>
-                <p>
-                  2026年5月、農業のデイワークに参加し、キウイ農家での作業を経験しました。そこで、消費者からは見えにくい多くの地道な工程があることを知りました。
-                </p>
-                <p class="nested-story">
-                  <strong>受粉作業：</strong> 受粉作業では、雄花から採取したわずか数グラムの花粉を一つひとつの雌花へ手作業で噴射する工程を経験しました。消費者からは見えない地道な作業が品質を支えていることを知り、生産者の負担を軽減する仕組みづくりの重要性を実感しました。この体験をきっかけに、後に自分でも家庭菜園を始めて野菜を育てるようになりました。
-                </p>
-              </div>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-marker"><i data-lucide="alert-triangle"></i></div>
-              <div class="timeline-content">
-                <h4>課題の認識：人手不足の深刻さとアプリの使いづらさ</h4>
-                <p>
-                  お世話になった高齢のご夫婦農家は、人手不足のためデイワークを利用していました。しかし、直前のキャンセルが多く、「経験の有無よりも、予定通り人が来てくれること自体がありがたい」という言葉が特に印象に残っています。人手不足が単なる効率の問題ではなく、生産活動そのものに影響する深刻な課題であることを実感しました。
-                </p>
-                <p class="nested-story">
-                  また、「アプリの文字が小さくて見づらい」という声を聞き、機能を増やすだけでなく、利用者の年齢や利用環境に合わせた設計の重要性を実感しました。
-                </p>
-              </div>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-marker"><i data-lucide="check-circle-2"></i></div>
-              <div class="timeline-content">
-                <h4>ビジョン</h4>
-                <p>
-                  農業体験を通じて、課題は利用者の近くにあることを学びました。私は利用者の声を起点に課題を発見し、テクノロジーによって解決策を仕組みとして実装することで価値を生み出したいと考えています。
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- アグリメディアで貢献したいこと -->
-          <div class="why-agrimedia-box glass-card-accent" style="margin-top: 2rem; padding: 1.5rem; border-radius: var(--border-radius-md); border-left: 4px solid var(--accent-color);">
-            <h4 style="font-size: 1rem; color: var(--accent-color); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
-              <i data-lucide="heart"></i> アグリメディアで実現したいこと
-            </h4>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
-              アグリメディアでは、利用者のリアルな課題を把握し、利用者と運用者の双方にとって使いやすいサービスづくりに取り組みたいと考えています。これまでのアプリ開発や研究活動で培った課題発見力と実装力を活かし、初心者やシニア層でも迷わず利用できるサービス設計や、運用負荷を減らす仕組みづくりに携わりたいと考えています。サービスの企画から改善まで一貫して関わりながら、本当に使われる仕組みを形にしていきたいです。
-            </p>
-          </div>
-        </div>
-
-        <!-- Right Side: Sidebar (RESTORED TO SIDEBAR, POSITIONED LOWER) -->
-        <div class="about-sidebar">
-          <div class="stat-card glass-card">
-            <span class="stat-number">38%</span>
-            <span class="stat-label">日本の食料自給率（カロリーベース）</span>
-            <p class="stat-detail">主要先進国の中で最低水準にあり、食の持続可能性は深刻な課題となっています。</p>
-            <span class="stat-source">出典：農林水産省「食料自給率表」（令和5年度）</span>
-          </div>
-          <div class="stat-card glass-card">
-            <span class="stat-number">68.4歳</span>
-            <span class="stat-label">基幹的農業従事者の平均年齢</span>
-            <p class="stat-detail">高齢化が急速に進む中、人手不足と「使いやすいユニバーサルUI」の需要が急増しています。</p>
-            <span class="stat-source">出典：農林水産省「農業構造動態調査」（2023年）</span>
-          </div>
-          <div class="quote-card glass-card-accent">
-            <div class="quote-card-content">
-              <span class="quote-decorator">“</span>
-              <p>「現場で見つけた課題を、テクノロジーで形にし続ける。」</p>
-            </div>
-          </div>
-        </div>
+      <div class="section-header">
+        <span class="section-tag">Highlights</span>
+        <h2 class="section-title">これまでの主な成果</h2>
+        <p class="section-description">ソフトウェア開発、3D表現、AI技術を活用し、社会や利用者の課題解決に取り組んできました。</p>
       </div>
 
-      <!-- ==================== EDUCATION & EXPERIENCE (Full Width / Stacked below 2-columns) ==================== -->
-      <div class="profile-details-section">
-        <h3 class="subsection-title"><i data-lucide="graduation-cap"></i> 学歴・職歴</h3>
-        <div class="profile-tables-vertical-stack">
-          
-          <!-- Education Table (Wide) -->
-          <div class="table-box glass-card wide-table-box">
-            <h4>学歴</h4>
-            <div class="responsive-table-wrapper">
-              <table class="profile-table">
-                <thead>
-                  <tr><th>年月</th><th>内容</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>2022年3月</td><td>福岡県立福岡中央高等学校 卒業</td></tr>
-                  <tr><td>2022年4月</td><td>長崎大学 情報データ科学部 情報データ科学科 入学</td></tr>
-                  <tr><td>2026年3月</td><td>長崎大学 情報データ科学部 情報データ科学科 卒業</td></tr>
-                  <tr><td>2026年4月</td><td>長崎大学大学院 総合生産科学研究科 入学（修了見込：2028年3月）</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <!-- Experience Table (Wide) -->
-          <div class="table-box glass-card wide-table-box">
-            <h4>職歴（アルバイト）</h4>
-            <div class="responsive-table-wrapper">
-              <table class="profile-table">
-                <thead>
-                  <tr><th>年月</th><th>内容</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>2022年11月 〜 2025年1月</td><td>株式会社牛右衛門 酛蔵庄屋（ホールスタッフ）</td></tr>
-                  <tr><td>2023年10月 〜 現在</td><td>マルニ味噌ラーメン（ホール＆キッチン）</td></tr>
-                  <tr><td>2026年2月 〜 現在</td><td>LITALICOワンダー（プログラミングインストラクター）</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+      <div class="highlights-grid">
+        <div class="highlight-item-card glass-card">
+          <div class="hl-icon"><i data-lucide="trophy"></i></div>
+          <h3>最優秀賞（全国1位）</h3>
+          <p>警察庁主催コンテストにて、全国約50作品の中から第1位（サイバー警察局長賞）を受賞。</p>
         </div>
-        
-        <div class="experience-insight-box">
-          <h5>💡 アルバイトから得た「農業×IT」へ繋がるアセット</h5>
-          <ul>
-            <li><strong>飲食店アルバイト（牛右衛門・マルニ味噌ラーメン）</strong><br>
-              飲食店では接客や店舗運営を通じて、食材が生産者から消費者へ届く流れの一端を経験しました。また、限られた人数で店舗を運営する大変さや、サービス品質を維持するためのオペレーションの重要性を学びました。この経験から、実際に働く人の視点を意識して課題を考える姿勢が身につきました。
-            </li>
-            <li><strong>LITALICOワンダー</strong><br>
-              MinecraftやBlenderを用いた授業を担当し、子どもたち一人ひとりの理解度に合わせて教え方を工夫してきました。専門的な内容でも相手の立場に立って分かりやすく伝える力を培うことができました。この経験は、新しい技術やサービスを利用者に届ける際のコミュニケーションや、利用者の本音を引き出す場面で活かせると考えています。
-            </li>
-          </ul>
+        <div class="highlight-item-card glass-card">
+          <div class="hl-icon"><i data-lucide="globe"></i></div>
+          <h3>App Store 世界配信</h3>
+          <p>個人開発のiOSアプリを配信中。ユーザーの声を反映した機能追加や、使いやすさの改善を推進。</p>
+        </div>
+        <div class="highlight-item-card glass-card">
+          <div class="hl-icon"><i data-lucide="activity"></i></div>
+          <h3>VR酔い低減の検証</h3>
+          <p>AIを活用した動的映像合成システムを開発。被験者実験を通じてVR酔いの低減効果を検証中。</p>
+        </div>
+        <div class="highlight-item-card glass-card">
+          <div class="hl-icon"><i data-lucide="check-square"></i></div>
+          <h3>大学公式システム採用</h3>
+          <p>案内用Webアプリの有志開発を主導。展示データ更新の運用負荷を削減し、公式採用へ。</p>
         </div>
       </div>
+    </div>
+  </section>
 
+  <!-- ==================== WORKS SECTION ==================== -->
+  <section id="works" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Works & Research</span>
+        <h2 class="section-title">これまでの実績</h2>
+        <p class="section-description">
+          利用者の使いやすさに加え、運営者の運用コスト削減や引き継ぎ体制まで考慮して設計・開発したプロジェクトです。
+        </p>
+      </div>
+
+      <div class="works-grid">
+        <!-- Work 1 -->
+        <div class="card work-card" onclick="openModal('modal-oc')">
+          <div class="card-badge">大学公認プロジェクト / 有志チーム開発</div>
+          <div class="card-icon"><i data-lucide="users"></i></div>
+          <h3 class="card-title">1. 長崎大学オープンキャンパス公式Webアプリ</h3>
+          <p class="card-text">
+            高校生向けマップ連動展示検索アプリの開発。教授陣への提案を経て大学公式として採用。運用負荷を削減するデータ連携設計を行い、現在は後輩への引き継ぎ体制の構築を進めています。
+          </p>
+          <div class="card-tags">
+            <span class="status-badge" style="background: rgba(16, 185, 129, 0.12); color: var(--brand-primary); border: 1px solid rgba(16, 185, 129, 0.2); padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 800; font-size: 0.65rem; margin-bottom: 0.3rem;">進行中（運用引継・特設サイト準備中）</span>
+            <span>React</span>
+            <span>Next.js</span>
+            <span>TypeScript</span>
+            <span>スプレッドシート</span>
+          </div>
+          <span class="card-link">詳細プロセスを見る <i data-lucide="chevron-right"></i></span>
+        </div>
+
+        <!-- Work 2 -->
+        <div class="card work-card" onclick="openModal('modal-cg')">
+          <div class="card-badge">防犯ボランティア / チームCG制作</div>
+          <div class="card-icon"><i data-lucide="award"></i></div>
+          <h3 class="card-title">2. フィッシング詐欺防止 3DCGアニメーション</h3>
+          <p class="card-text">
+            若年層向けのフィッシング詐欺啓発3D映像。本物そっくりの偽サイトを用いた演出や、チームディレクションにより全国1位を受賞。
+          </p>
+          <div class="card-tags">
+            <span class="status-badge" style="background: rgba(5, 150, 105, 0.12); color: var(--brand-secondary); border: 1px solid rgba(5, 150, 105, 0.2); padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 800; font-size: 0.65rem; margin-bottom: 0.3rem;">完了（全国1位最優秀賞）</span>
+            <span>Blender 3D</span>
+            <span>Premiere Pro</span>
+            <span>ディレクション</span>
+          </div>
+          <span class="card-link">詳細プロセスを見る <i data-lucide="chevron-right"></i></span>
+        </div>
+
+        <!-- Work 3 -->
+        <div class="card work-card" onclick="openModal('modal-res')">
+          <div class="card-badge">大学院研究 / 修士課程（個人研究）</div>
+          <div class="card-icon"><i data-lucide="shield-alert"></i></div>
+          <h3 class="card-title">3. AIを用いた360度VR映像の視覚的快適性向上</h3>
+          <p class="card-text">
+            360度立体VR映像における「VR酔い」を低減する研究。AIによる映像の自動補正プログラムや、3Dプリンターを用いた専用カメラ固定台の開発・検証を行う。
+          </p>
+          <div class="card-tags">
+            <span class="status-badge" style="background: rgba(16, 185, 129, 0.12); color: var(--brand-primary); border: 1px solid rgba(16, 185, 129, 0.2); padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 800; font-size: 0.65rem; margin-bottom: 0.3rem;">研究進行中（2028年3月修了見込）</span>
+            <span>Python</span>
+            <span>PyTorch</span>
+            <span>OpenCV</span>
+            <span>Unity</span>
+            <span>3Dプリンター</span>
+          </div>
+          <span class="card-link">研究の詳細とリポジトリを見る <i data-lucide="chevron-right"></i></span>
+        </div>
+
+        <!-- Work 4 -->
+        <div class="card work-card" onclick="openModal('modal-grad')">
+          <div class="card-badge">学部研究 / 卒業論文（個人研究）</div>
+          <div class="card-icon"><i data-lucide="scan"></i></div>
+          <h3 class="card-title">4. 簡易360°全周囲3D映像シームレス合成</h3>
+          <p class="card-text">
+            安価なカメラ3台を用いて自然な360度立体VR映像を合成する手法。AIによる深度推定を用いた歪み補正アルゴリズムと、固定土台を開発。
+          </p>
+          <div class="card-tags">
+            <span class="status-badge" style="background: rgba(5, 150, 105, 0.12); color: var(--brand-secondary); border: 1px solid rgba(5, 150, 105, 0.2); padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 800; font-size: 0.65rem; margin-bottom: 0.3rem;">完了（卒業論文発表済）</span>
+            <span>Python</span>
+            <span>PyTorch</span>
+            <span>OpenCV</span>
+            <span>3Dプリンター</span>
+          </div>
+          <span class="card-link">研究の詳細とリポジトリを見る <i data-lucide="chevron-right"></i></span>
+        </div>
+
+        <!-- Work 5 -->
+        <div class="card work-card" onclick="openModal('modal-hs')">
+          <div class="card-badge">個人開発 / iOSアプリ配信</div>
+          <div class="card-icon"><i data-lucide="smartphone"></i></div>
+          <h3 class="card-title">5. iOSアプリ「HabitSpark」のユーザー体験（UX）改善</h3>
+          <p class="card-text">
+            「当日に入力し忘れると継続記録が途切れてしまう」というユーザーの不満を解決するため、過去の日付にも入力できるようデータ構造を再設計。既存ユーザーのデータを保持したまま、安全なアップデートに成功しました。
+          </p>
+          <div class="card-tags">
+            <span class="status-badge" style="background: rgba(5, 150, 105, 0.12); color: var(--brand-secondary); border: 1px solid rgba(5, 150, 105, 0.2); padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 800; font-size: 0.65rem; margin-bottom: 0.3rem;">App Store公開中（アップデート保守継続）</span>
+            <span>Swift</span>
+            <span>SwiftUI</span>
+            <span>SwiftData</span>
+            <span>個人開発</span>
+          </div>
+          <span class="card-link">詳細プロセスを見る <i data-lucide="chevron-right"></i></span>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- ==================== SKILLS & TECH STACK SECTION ==================== -->
-  <section id="skills" class="section section-alt">
+  <section id="skills" class="section">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Tech Stack</span>
@@ -675,7 +678,7 @@
   </section>
 
   <!-- ==================== LINKS SECTION (SIMPLE AND CLEAN) ==================== -->
-  <section id="contact" class="section">
+  <section id="contact" class="section section-alt">
     <div class="container text-center">
       <div class="cta-box glass-card">
         <span class="section-tag">Portfolio Links</span>
@@ -847,13 +850,21 @@
         <p>学部の卒業研究で見えてきた新たな課題を解決し、より実用的なシステムへと発展させるための研究です。</p>
         
         <h4>⚠️ 課題 / Problem</h4>
-        <p>学部での研究終了時、立体感が強すぎて被験者が疲れやすいことや、カメラの手ブレ補正のズレによる映像の乱れが課題となりました。また、処理に1フレーム3秒かかり、リアルタイム配信に使えない点も問題でした。</p>
+        <p>VR立体映像のつなぎ目のズレやカメラの揺れにより、視聴者が「VR酔い（目の疲れ）」を引き起こす課題がありました。</p>
         
         <h4>🛠️ 解決策 / Solution</h4>
-        <p>AIの処理速度を高速化し、リアルタイムでの映像合成と配信を可能にするプログラムの開発に取り組んでいます。また、目の疲れを和らげるために、見え方のズレを自動で補正する技術の導入や、手ブレによる映像のズレを自動で追いかける処理の構築を進めています。</p>
+        <p>AIによる画像認識処理を用いて、映像の違和感やズレをリアルタイムで検出し、自動で補正するプログラムの開発に取り組んでいます。</p>
         
         <h4>🌱 成果 / Outcome</h4>
-        <p>視聴者の目の負担を減らし、リアルタイムで安定して動く合成システムの確立を目指しています。現在は被験者による視聴実験を行い、アンケートや実験データを集めてVR酔いの低減効果を検証しています。</p>
+        <p>実際に被験者にVRゴーグルで視聴してもらう評価実験を通じて、映像の快適性が向上しているか効果を検証しています。</p>
+
+        <details style="margin-top: 1.5rem; border: 1px solid var(--border-color); padding: 1rem; border-radius: var(--border-radius-sm); background: var(--bg-surface-opaque);">
+          <summary style="font-weight: 750; cursor: pointer; color: var(--text-primary);"><i data-lucide="info" style="width:16px; height:16px; vertical-align:middle; margin-right:4px;"></i> 技術的詳細・アルゴリズム / Technical Details</summary>
+          <div style="margin-top: 0.8rem; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+            <p style="margin-bottom: 0.5rem;"><strong>・AI処理のリアルタイム化:</strong> 深層学習モデルの最適化とGPU並列処理（PyTorch / TensorRT）を用いることで、1フレームあたり約3秒かかっていた映像合成処理を高速化し、リアルタイムでの配信を可能にしました。</p>
+            <p><strong>・物理デバイス開発:</strong> 手ブレの影響を根本から減らすため、3Dプリンターで独自のカメラ固定用リグ（アタッチメント）を自作し、物理面でのノイズ低減も並行して実施しています。</p>
+          </div>
+        </details>
       </div>
     </div>
   </div>
@@ -898,8 +909,8 @@
       <button class="close-btn" onclick="closeModal('modal-hs')" aria-label="閉じる">&times;</button>
       <div class="modal-header">
         <span class="modal-tag">個人開発 / iOSアプリ配信</span>
-        <h3 id="modal-hs-title">iOSアプリ「HabitSpark」のデータモデル再設計</h3>
-        <p class="modal-sub">ユーザーの「遡り入力」の要望を起点とした、データ構造の根本刷新</p>
+        <h3 id="modal-hs-title">iOSアプリ「HabitSpark」のユーザー体験（UX）改善</h3>
+        <p class="modal-sub">ユーザーの「入力し忘れによる挫折」を防ぐための、データ構造の刷新と機能追加</p>
       </div>
       <div class="modal-body">
         <div class="modal-meta-grid">
@@ -916,16 +927,13 @@
         <p>「HabitSpark」は、挫折を防ぐための習慣化支援iOSアプリです。企画、デザイン、Swiftでの実装、App Storeでのリリースまで一貫して単独で行いました。</p>
         
         <h4>⚠️ 課題 / Problem</h4>
-        <p>既存の多くの習慣化アプリは「毎日完璧に継続すること」を前提としており、一度サボってしまうとモチベーションが途切れ、そのまま挫折しやすいという課題がありました。また、目標の粒度が大きすぎて、何から手をつければいいか迷う点も問題でした。</p>
+        <p>毎日完璧に記録しなければならず、入力し忘れるとこれまでの継続記録が途切れてしまい、モチベーションが下がって挫折してしまうというユーザーの要望・不満がありました。</p>
         
         <h4>🛠️ 解決策 / Solution</h4>
-        <p>目標を「月・週・日次」に段階的に分解できる設計にし、さらに失敗した日にはKPT（Keep/Problem/Try）法で振り返りを行います。Try（改善策）がそのまま翌日のやること（タスク）になる仕組みを作ることで、「挫折せず、自然に改善サイクルが回る」新しい習慣化アプリを開発しました。</p>
-
-        <h4>⚙️ ユーザーフィードバックに基づくUX改善</h4>
-        <p>毎日開きたくなる工夫としてヒートマップ表示などを設計する中、App Storeでユーザーから「できなかったTry（タスク）を翌日に引き継ぎたい」という意見をいただきました。そこで、単なるコピーではなく「Tryを翌日へ自動で引き継ぐ機能」を実装しました。また、3日間未完了が続いたTryは自動的に「Problem（課題）」へ差し戻し、目標設定の難易度自体を見直せる独自の仕組みを導入しました。これにより、「できなかったことへの罪悪感」を減らし、目標を適切に調整できる体験を目指しました。</p>
+        <p>過去の日付に遡って記録を入力できるよう、SwiftDataを用いたデータモデルの関連構造を再設計しました。既存ユーザーの過去データを破壊することなく、安全に新モデルへと自動移行（マイグレーション）するプログラムを構築しました。</p>
 
         <h4>🌱 成果 / Outcome</h4>
-        <p>「Tryの自動引き継ぎ」や「Problemへの自動差し戻し」といったユーザーに寄り添ったUX設計が好評を得て、App Storeにて星5の高評価を獲得しました。</p>
+        <p>この「遡り入力」機能により継続のしやすさが大幅に向上し、App Storeにて星5の高評価とご愛用ユーザーからの喜びの声を獲得しました。</p>
       </div>
     </div>
   </div>
