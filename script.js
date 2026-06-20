@@ -2,6 +2,8 @@
    PORTFOLIO INTERACTION & ACCESSIBILITY LOGIC (UPDATED)
    ========================================================================== */
 
+let lastActiveElement = null; // Store last active element to return focus after modal closes
+
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize Lucide Icons
   if (typeof lucide !== 'undefined') {
@@ -34,6 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.target.classList.contains('modal')) {
       event.target.style.display = 'none';
       document.body.style.overflow = 'auto';
+      if (lastActiveElement) {
+        lastActiveElement.focus();
+        lastActiveElement = null;
+      }
     }
   });
 
@@ -49,6 +55,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Keyboard navigation support for work-cards
+  const workCards = document.querySelectorAll('.work-card');
+  workCards.forEach(card => {
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault(); // Prevent page scroll on Space key
+        card.click();
+      }
+    });
+  });
+
+  // Restore accessibility settings from localStorage
+  const savedSize = localStorage.getItem('ud-size') || 'normal';
+  const savedFont = localStorage.getItem('ud-font') || 'standard';
+  const savedTheme = localStorage.getItem('ud-theme') || 'light';
+
+  changeSize(savedSize);
+  changeFont(savedFont);
+  
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  const themeIcon = document.getElementById('theme-icon');
+  if (themeIcon) {
+    if (savedTheme === 'dark') {
+      themeIcon.setAttribute('data-lucide', 'sun');
+    } else {
+      themeIcon.setAttribute('data-lucide', 'moon');
+    }
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  }
+
   // Initialize Shadow Simulation at 12:00
   simulateShadow(12);
 });
@@ -58,23 +96,27 @@ document.addEventListener('DOMContentLoaded', () => {
 // Change Font Size (Applied to HTML document element for rem scaling)
 function changeSize(size) {
   document.documentElement.setAttribute('data-size', size);
+  localStorage.setItem('ud-size', size);
   
   // Update Active Button State
   document.querySelectorAll('[id^="btn-size-"]').forEach(btn => {
     btn.classList.remove('active');
   });
-  document.getElementById(`btn-size-${size}`).classList.add('active');
+  const activeBtn = document.getElementById(`btn-size-${size}`);
+  if (activeBtn) activeBtn.classList.add('active');
 }
 
 // Change Font Type (Applied to HTML document element)
 function changeFont(font) {
   document.documentElement.setAttribute('data-font', font);
+  localStorage.setItem('ud-font', font);
   
   // Update Active Button State
   document.querySelectorAll('[id^="btn-font-"]').forEach(btn => {
     btn.classList.remove('active');
   });
-  document.getElementById(`btn-font-${font}`).classList.add('active');
+  const activeBtn = document.getElementById(`btn-font-${font}`);
+  if (activeBtn) activeBtn.classList.add('active');
 }
 
 // Toggle Theme (Light / Dark)
@@ -82,13 +124,16 @@ function toggleTheme() {
   const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
   const newTheme = currentTheme === 'light' ? 'dark' : 'light';
   document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('ud-theme', newTheme);
   
   // Update Theme Icon
   const themeIcon = document.getElementById('theme-icon');
-  if (newTheme === 'dark') {
-    themeIcon.setAttribute('data-lucide', 'sun');
-  } else {
-    themeIcon.setAttribute('data-lucide', 'moon');
+  if (themeIcon) {
+    if (newTheme === 'dark') {
+      themeIcon.setAttribute('data-lucide', 'sun');
+    } else {
+      themeIcon.setAttribute('data-lucide', 'moon');
+    }
   }
   
   if (typeof lucide !== 'undefined') {
@@ -101,8 +146,15 @@ function toggleTheme() {
 function openModal(id) {
   const modal = document.getElementById(id);
   if (modal) {
+    lastActiveElement = document.activeElement; // Track the element that triggered the modal
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    
+    // Focus the close button for screen reader convenience
+    const closeBtn = modal.querySelector('.close-btn');
+    if (closeBtn) {
+      closeBtn.focus();
+    }
   }
 }
 
@@ -111,6 +163,12 @@ function closeModal(id) {
   if (modal) {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto'; // Restore scrolling
+    
+    // Restore focus to the element that triggered the modal
+    if (lastActiveElement) {
+      lastActiveElement.focus();
+      lastActiveElement = null;
+    }
   }
 }
 
