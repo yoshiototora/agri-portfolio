@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <!-- Background circle with gradient -->
+  <circle cx="256" cy="256" r="240" fill="url(#grad)" filter="url(#shadow)" />
+  <!-- Sprout drawing -->
+  <!-- Left leaf -->
+  <path d="M256,380 C210,380 160,320 160,250 C160,180 200,160 256,160 C256,160 256,380 256,380 Z" fill="#FFFFFF" opacity="0.9" />
+  <!-- Right leaf -->
+  <path d="M256,380 C302,380 352,320 352,250 C352,180 312,160 256,160 C256,160 256,380 256,380 Z" fill="#FFFFFF" />
+  <!-- Stem overlay line/curve -->
+  <path d="M256,380 L256,160" stroke="#047857" stroke-width="8" stroke-linecap="round" />
+  <!-- Tech nodes / circles representing IT -->
+  <circle cx="256" cy="380" r="16" fill="#3B82F6" stroke="#FFFFFF" stroke-width="4" />
+  <path d="M256,380 C220,400 170,390 140,360" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-dasharray="8 6" opacity="0.8" />
+  <circle cx="140" cy="360" r="10" fill="#FFFFFF" />
+  <path d="M256,380 C292,400 342,390 372,360" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-dasharray="8 6" opacity="0.8" />
+  <circle cx="372" cy="360" r="10" fill="#FFFFFF" />
+</svg>
