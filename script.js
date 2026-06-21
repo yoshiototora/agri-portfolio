@@ -331,7 +331,7 @@ function simulateShadow(hour) {
     shadowWidth = 20; // Short shadow directly under
     opacity = 0.5;
     timeStr += ' (昼)';
-    descText = '☀️ 太陽が南中。影は障害物の直下にのみ落ちるため、すべての区画に100%直射日光が当たります。成長期（トマト等）に最適。';
+    descText = '☀️ 太陽が南中。影は障害物の直下にのみ落ち、すべての区画が日当たりよい状態です。日照を好む野菜に向いています。';
   } else if (h < 12) {
     // Morning: Sun is on the left, shadow is cast to the right
     const factor = (12 - h) / 6; // 1 at 6:00, 0 at 12:00
