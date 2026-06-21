@@ -107,27 +107,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize Shadow Simulation at 12:00
   simulateShadow(12);
+
+  // ResizeObserver for shadow simulation field resizing (responsive & font size changes)
+  const field = document.getElementById('sim-field');
+  if (field && 'ResizeObserver' in window) {
+    const resizeObserver = new ResizeObserver(() => {
+      requestAnimationFrame(redrawCurrentShadow);
+    });
+    resizeObserver.observe(field);
+  } else {
+    window.addEventListener('resize', () => {
+      requestAnimationFrame(redrawCurrentShadow);
+    });
+  }
 });
 
 // UI Sync Helper
 function syncAccessibilityUI(theme, size, font) {
   // Size buttons
-  document.querySelectorAll('[id^="btn-size-"]').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('[id^="btn-size-"]').forEach(btn => {
+    btn.classList.remove('active');
+    btn.setAttribute('aria-pressed', 'false');
+  });
   const sizeBtn = document.getElementById(`btn-size-${size}`);
-  if (sizeBtn) sizeBtn.classList.add('active');
+  if (sizeBtn) {
+    sizeBtn.classList.add('active');
+    sizeBtn.setAttribute('aria-pressed', 'true');
+  }
 
   // Font buttons
-  document.querySelectorAll('[id^="btn-font-"]').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('[id^="btn-font-"]').forEach(btn => {
+    btn.classList.remove('active');
+    btn.setAttribute('aria-pressed', 'false');
+  });
   const fontBtn = document.getElementById(`btn-font-${font}`);
-  if (fontBtn) fontBtn.classList.add('active');
+  if (fontBtn) {
+    fontBtn.classList.add('active');
+    fontBtn.setAttribute('aria-pressed', 'true');
+  }
 
   // Theme toggle icon
   const themeIcon = document.getElementById('theme-icon');
+  const themeBtn = document.getElementById('theme-toggle-btn');
   if (themeIcon) {
     if (theme === 'dark') {
       themeIcon.setAttribute('data-lucide', 'sun');
+      if (themeBtn) themeBtn.setAttribute('aria-label', 'ライトモードに切り替え');
     } else {
       themeIcon.setAttribute('data-lucide', 'moon');
+      if (themeBtn) themeBtn.setAttribute('aria-label', 'ダークモードに切り替え');
     }
   }
 }
@@ -142,9 +170,15 @@ function changeSize(size) {
   // Update Active Button State
   document.querySelectorAll('[id^="btn-size-"]').forEach(btn => {
     btn.classList.remove('active');
+    btn.setAttribute('aria-pressed', 'false');
   });
   const activeBtn = document.getElementById(`btn-size-${size}`);
-  if (activeBtn) activeBtn.classList.add('active');
+  if (activeBtn) {
+    activeBtn.classList.add('active');
+    activeBtn.setAttribute('aria-pressed', 'true');
+  }
+  
+  scheduleShadowRedraw();
 }
 
 // Change Font Type (Applied to HTML document element)
@@ -155,9 +189,13 @@ function changeFont(font) {
   // Update Active Button State
   document.querySelectorAll('[id^="btn-font-"]').forEach(btn => {
     btn.classList.remove('active');
+    btn.setAttribute('aria-pressed', 'false');
   });
   const activeBtn = document.getElementById(`btn-font-${font}`);
-  if (activeBtn) activeBtn.classList.add('active');
+  if (activeBtn) {
+    activeBtn.classList.add('active');
+    activeBtn.setAttribute('aria-pressed', 'true');
+  }
 }
 
 // Toggle Theme (Light / Dark)
@@ -169,11 +207,14 @@ function toggleTheme() {
   
   // Update Theme Icon
   const themeIcon = document.getElementById('theme-icon');
+  const themeBtn = document.getElementById('theme-toggle-btn');
   if (themeIcon) {
     if (newTheme === 'dark') {
       themeIcon.setAttribute('data-lucide', 'sun');
+      if (themeBtn) themeBtn.setAttribute('aria-label', 'ライトモードに切り替え');
     } else {
       themeIcon.setAttribute('data-lucide', 'moon');
+      if (themeBtn) themeBtn.setAttribute('aria-label', 'ダークモードに切り替え');
     }
   }
   
@@ -277,46 +318,87 @@ function resetGrowth() {
 
 /* ==================== 4. AGRISCAPE DEMO (SHADOW SUN SIMULATION - IMPROVED) ==================== */
 
+let shadowResizeFrame = null;
+
+function redrawCurrentShadow() {
+  const slider = document.getElementById('time-slider');
+  if (slider) {
+    simulateShadow(slider.value);
+  }
+}
+
+function scheduleShadowRedraw() {
+  if (shadowResizeFrame !== null) {
+    cancelAnimationFrame(shadowResizeFrame);
+  }
+  shadowResizeFrame = requestAnimationFrame(() => {
+    redrawCurrentShadow();
+    shadowResizeFrame = null;
+  });
+}
+
 function simulateShadow(hour) {
-  const shadow = document.getElementById('sim-shadow');
+  const leftShadow = document.getElementById('sim-shadow-left');
+  const rightShadow = document.getElementById('sim-shadow-right');
+  const noonShadow = document.getElementById('sim-shadow-noon');
   const timeLabel = document.getElementById('time-label');
   const statusMsg = document.getElementById('sim-message');
   const sunElement = document.getElementById('sun-element');
   
   // Crop Zones and Stats
-  const zoneA = document.querySelector('.zone-left');
-  const zoneB = document.querySelector('.zone-center');
-  const zoneC = document.querySelector('.zone-right');
+  const zoneA = document.getElementById('zone-a');
+  const zoneB = document.getElementById('zone-b');
+  const zoneC = document.getElementById('zone-c');
   
   const statA = document.getElementById('sun-percent-a');
   const statB = document.getElementById('sun-percent-b');
   const statC = document.getElementById('sun-percent-c');
   
+  const field = document.getElementById('sim-field');
+  
+  // 要素取得後の安全確認
+  if (
+    !leftShadow ||
+    !rightShadow ||
+    !noonShadow ||
+    !timeLabel ||
+    !statusMsg ||
+    !sunElement ||
+    !zoneA ||
+    !zoneB ||
+    !zoneC ||
+    !statA ||
+    !statB ||
+    !statC
+  ) {
+    return;
+  }
+  
   const h = parseInt(hour, 10);
   
   // 1. Calculate Sun Position (Arc)
-  // Normalizing hour (6 to 18) to progress (0% to 100%)
   const progress = (h - 6) / 12; // 0 at 6am, 0.5 at 12pm, 1 at 6pm
-  const leftPos = progress * 100;
-  
-  // Height calculation (Sine curve)
-  // bottomPos will peak at 0.5 (12:00) at 35px, and start/end at -10px
+  const leftPos = 6 + progress * 88;
   const bottomPos = -10 + Math.sin(progress * Math.PI) * 45;
   
   sunElement.style.left = `${leftPos}%`;
   sunElement.style.bottom = `${bottomPos}px`;
   
-  // 2. Calculate Shadow Skew and Width
-  let skew = 0;
-  let shadowWidth = 0;
-  let opacity = 0.4;
-  let timeStr = `${h}:00`;
-  let descText = '';
+  // 2. Calculate Shadow Dimensions
+  const shadowTop = 58;
+  const bottomMargin = 12;
+  const minimumLength = 35;
   
-  // Direct calculations for zones sun levels
-  let sunA = 100;
-  let sunB = 100;
-  let sunC = 100;
+  const maximumLength = field
+    ? Math.max(minimumLength, field.clientHeight - shadowTop - bottomMargin)
+    : 140;
+  
+  // 3. Reset all shadows (height and opacity)
+  [leftShadow, rightShadow].forEach((shadow) => {
+    shadow.style.height = '0px';
+    shadow.style.opacity = '0';
+  });
+  noonShadow.style.opacity = '0';
   
   // Reset all zone highlights
   zoneA.classList.remove('in-shadow');
@@ -326,72 +408,75 @@ function simulateShadow(hour) {
   statB.classList.remove('shadowed');
   statC.classList.remove('shadowed');
   
+  let sunA = '日当たり良好';
+  let sunB = '日当たり良好';
+  let sunC = '日当たり良好';
+  let timeStr = `${h}:00`;
+  let descText = '';
+  
   if (h === 12) {
-    skew = 0;
-    shadowWidth = 20; // Short shadow directly under
-    opacity = 0.5;
     timeStr += ' (昼)';
-    descText = '☀️ 太陽が南中。影は障害物の直下にのみ落ちるため、すべての区画が日当たりが良い状態になります。トマトやイチゴなど日当たりを好む野菜に向いています。';
+    descText = '☀️ 太陽が南中。影は建物の直下にのみ落ちるため、すべての区画に日が当たりやすい状態です。';
+    noonShadow.style.opacity = '1';
   } else if (h < 12) {
     // Morning: Sun is on the left, shadow is cast to the right
     const factor = (12 - h) / 6; // 1 at 6:00, 0 at 12:00
-    skew = -50 * factor;
-    shadowWidth = 20 + (160 * factor);
-    opacity = 0.5 - (0.2 * factor);
+    const shadowLength = minimumLength + (maximumLength - minimumLength) * factor;
+    const angle = 8 + 22 * factor;
+    const opacity = 0.6 - (0.3 * factor);
     timeStr += ' (朝・午前)';
     
+    rightShadow.style.height = `${shadowLength}px`;
+    rightShadow.style.transform = `translateX(-50%) rotate(${-angle}deg)`;
+    rightShadow.style.opacity = `${opacity}`;
+    
     if (h <= 8) {
-      // Very early morning, long shadow casts over B and C
-      sunB = 15;
-      sunC = 10;
+      sunB = '日陰';
+      sunC = '一部日陰';
       zoneB.classList.add('in-shadow');
       zoneC.classList.add('in-shadow');
       statB.classList.add('shadowed');
       statC.classList.add('shadowed');
-      descText = '🌤️ 朝日。家（左）の影が右側の「区画B・C」に長く伸び、日照が遮られます。「区画A」は日当たり良好です。';
+      descText = '🌤️ 朝日。朝は建物の影が右側へ長く伸び、中央の区画Bと右側の区画Cが日陰になります。';
     } else {
-      // Mid-morning shadow covers only B
-      sunB = 40;
+      sunB = '一部日陰';
       zoneB.classList.add('in-shadow');
       statB.classList.add('shadowed');
-      descText = '🌤️ 午前。影がやや短くなり「区画C」は直射日光に入りましたが、「区画B」はまだ家陰に入ります。';
+      descText = '🌤️ 午前。影がやや短くなり「区画C」は直射日光に入りましたが、「区画B」はまだ建物陰に入ります。';
     }
   } else {
     // Afternoon: Sun is on the right, shadow is cast to the left
     const factor = (h - 12) / 6; // 0 at 12:00, 1 at 18:00
-    skew = 50 * factor;
-    shadowWidth = 20 + (160 * factor);
-    opacity = 0.5 - (0.2 * factor);
+    const shadowLength = minimumLength + (maximumLength - minimumLength) * factor;
+    const angle = 8 + 22 * factor;
+    const opacity = 0.6 - (0.3 * factor);
     timeStr += ' (夕方・午後)';
     
+    leftShadow.style.height = `${shadowLength}px`;
+    leftShadow.style.transform = `translateX(-50%) rotate(${angle}deg)`;
+    leftShadow.style.opacity = `${opacity}`;
+    
     if (h >= 16) {
-      // Late afternoon, long shadow casts over A and B
-      sunA = 10;
-      sunB = 30;
+      sunA = '日陰';
+      sunB = '一部日陰';
       zoneA.classList.add('in-shadow');
       zoneB.classList.add('in-shadow');
       statA.classList.add('shadowed');
       statB.classList.add('shadowed');
-      descText = '🌇 夕方。西日の影響で影が左側へ長く伸び、「区画A・B」が日陰になります。暑さに弱い葉物野菜（レタスなど）の育成に適した日陰環境です。';
+      descText = '🌇 夕方。西日の影響で影が左側へ長く伸び、「区画A・B」が日陰になります。区画AとBが日陰になりやすい状態です。日陰を利用したい場合の配置を考える参考になります。';
     } else {
-      // Early afternoon shadow covers only A
-      sunA = 50;
-      zoneA.classList.add('in-shadow');
-      statA.classList.add('shadowed');
-      descText = '🌇 午後。太陽が西へ傾き始め、障害物のすぐ左側にある「区画A」が影に入り始めました。';
+      sunB = '一部日陰';
+      zoneB.classList.add('in-shadow');
+      statB.classList.add('shadowed');
+      descText = '🌇 午後。午後は影が左側へ伸び始め、中央の区画Bが一部日陰になります。';
     }
   }
-  
-  // Apply changes to shadow element
-  shadow.style.transform = `skewX(${skew}deg)`;
-  shadow.style.width = `${shadowWidth}px`;
-  shadow.style.opacity = opacity;
   
   // Update UI values
   timeLabel.textContent = timeStr;
   statusMsg.textContent = descText;
   
-  statA.textContent = `${sunA}%`;
-  statB.textContent = `${sunB}%`;
-  statC.textContent = `${sunC}%`;
+  statA.textContent = sunA;
+  statB.textContent = sunB;
+  statC.textContent = sunC;
 }
