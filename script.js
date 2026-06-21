@@ -248,7 +248,7 @@ function simulateGrowth() {
   } else if (currentAccumulatedTemp >= 350) {
     plantIcon.textContent = '🌿'; // Growth phase 2
     plantIcon.style.transform = 'scale(1.2)';
-    statusMsg.textContent = '順順に育っています！つぼみが膨らみ始めました。';
+    statusMsg.textContent = '順調に育っています！つぼみが膨らみ始めました。';
   } else if (currentAccumulatedTemp >= 220) {
     plantIcon.textContent = '🌱'; // Growth phase 1
     plantIcon.style.transform = 'scale(1.1)';
