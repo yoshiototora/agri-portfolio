@@ -2276,6 +2276,35 @@ button.close-btn {
   .idea-box {
     padding: 1.5rem;
   }
+
+  .ideas-container,
+  .idea-box,
+  .idea-body,
+  .demo-wrapper,
+  .shadow-sim-container,
+  .vegilog-demo-box,
+  .profile-details-section,
+  .profile-tables-vertical-stack,
+  .wide-table-box,
+  .responsive-table-wrapper {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .idea-box,
+  .wide-table-box {
+    width: 100%;
+  }
+
+  .demo-controls {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .demo-controls .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* Small screens: <= 360px (Ultra-mobile scale down) */
