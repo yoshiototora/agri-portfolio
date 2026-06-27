@@ -62,22 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Keyboard navigation for work cards (Accessibility)
-  const workCards = document.querySelectorAll('.work-card');
-  workCards.forEach(card => {
-    card.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        const onclickStr = card.getAttribute('onclick');
-        if (onclickStr) {
-          const match = onclickStr.match(/openModal\('([^']+)'\)/);
-          if (match && match[1]) {
-            openModal(match[1]);
-          }
-        }
-      }
-    });
-  });
+
+
 
   // Focus trap for modals
   document.addEventListener('keydown', (event) => {
