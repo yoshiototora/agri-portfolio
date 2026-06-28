@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.key === 'Escape') {
       const modals = document.querySelectorAll('.modal');
       modals.forEach(modal => {
-        if (modal.style.display === 'block') {
+        if (modal.classList.contains('is-open')) {
           closeModal(modal.id);
         }
       });
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Focus trap for modals
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Tab') {
-      const activeModal = document.querySelector('.modal[style*="display: block"]');
+      const activeModal = document.querySelector('.modal.is-open');
       if (activeModal) {
         const focusableElements = activeModal.querySelectorAll('button, [href], input, select, textarea, [tabindex="0"]');
         if (focusableElements.length > 0) {
@@ -206,7 +206,7 @@ function openModal(id) {
   const modal = document.getElementById(id);
   if (modal) {
     previousFocusedElement = document.activeElement;
-    modal.style.display = 'block';
+    modal.classList.add('is-open');
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
     
     // Focus the close button or first focusable element
@@ -220,8 +220,8 @@ function openModal(id) {
 function closeModal(id) {
   const modal = document.getElementById(id);
   if (modal) {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Restore scrolling
+    modal.classList.remove('is-open');
+    document.body.style.overflow = ''; // Restore scrolling
     
     // Restore focus
     if (previousFocusedElement) {
