@@ -36,9 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     navItems.forEach(item => {
-      item.classList.remove('active');
-      if (item.getAttribute('href').slice(1) === current) {
-        item.classList.add('active');
+      const isCurrent = item.getAttribute('href').slice(1) === current;
+      
+      item.classList.toggle('active', isCurrent);
+      
+      if (isCurrent) {
+        item.setAttribute('aria-current', 'location');
+      } else {
+        item.removeAttribute('aria-current');
       }
     });
   });

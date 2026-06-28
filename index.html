@@ -17,7 +17,8 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="light-mode">
+  <a href="#main-content" class="skip-to-main">本文へスキップ</a>
 
   <!-- ==================== UNIVERSAL DESIGN HEADER ==================== -->
   <header id="ud-header" class="glass-nav">
@@ -56,15 +57,40 @@
   </header>
  
   <!-- Navigation Menu -->
-  <nav class="side-menu">
-    <a href="#hero" class="menu-item active" title="トップ"><i data-lucide="home"></i><span>Top</span></a>
-    <a href="#about" class="menu-item" title="農業体験と原体験"><i data-lucide="user"></i><span>About</span></a>
-    <a href="#strengths" class="menu-item" title="経験から培った力"><i data-lucide="sparkles"></i><span>Strengths</span></a>
-    <a href="#works" class="menu-item" title="主な取り組み"><i data-lucide="briefcase"></i><span>Works</span></a>
-    <a href="#career-role" class="menu-item" title="担いたい役割"><i data-lucide="check-circle-2"></i><span>Role</span></a>
-    <a href="#contact" class="menu-item" title="リンクとビジョン"><i data-lucide="link"></i><span>Links</span></a>
+  <nav class="side-menu" aria-label="ページ内ナビゲーション">
+    <a href="#hero" class="menu-item active" aria-current="location">
+      <i data-lucide="home"></i>
+      <span class="desktop-menu-label">Top</span>
+      <span class="mobile-menu-label">トップ</span>
+    </a>
+    <a href="#about" class="menu-item">
+      <i data-lucide="user"></i>
+      <span class="desktop-menu-label">About</span>
+      <span class="mobile-menu-label">原体験</span>
+    </a>
+    <a href="#strengths" class="menu-item">
+      <i data-lucide="sparkles"></i>
+      <span class="desktop-menu-label">Strengths</span>
+      <span class="mobile-menu-label">強み</span>
+    </a>
+    <a href="#works" class="menu-item">
+      <i data-lucide="briefcase"></i>
+      <span class="desktop-menu-label">Works</span>
+      <span class="mobile-menu-label">実績</span>
+    </a>
+    <a href="#career-role" class="menu-item">
+      <i data-lucide="check-circle-2"></i>
+      <span class="desktop-menu-label">Role</span>
+      <span class="mobile-menu-label">役割</span>
+    </a>
+    <a href="#contact" class="menu-item">
+      <i data-lucide="link"></i>
+      <span class="desktop-menu-label">Links</span>
+      <span class="mobile-menu-label">リンク</span>
+    </a>
   </nav>
  
+  <main id="main-content">
   <!-- ==================== HERO SECTION ==================== -->
   <section id="hero" class="hero-section">
     <div class="hero-bg-art">
@@ -75,14 +101,14 @@
       <div class="hero-content">
         <span class="badge">実践 × 企画 × 協働</span>
         <h1 class="hero-title">
-          現場で見つけた課題を、<br>
+          自分で確かめた気づきを、<br>
           <span style="color: var(--brand-primary); padding: 0;">対話と工夫で形にする。</span>
         </h1>
         <p class="hero-tagline" style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 1rem; border-left: 4px solid var(--brand-primary); padding-left: 0.8rem; line-height: 1.4;">
           気になったことは、まずやってみる。
         </p>
         <p class="hero-subtitle">
-          気になったことは自分で体験し、そこで得た気づきを次の行動につなげることを大切にしています。農業に関心を持った人が、自分に合った形で関われるきっかけを増やすため、人と農をつなぐ企画や仕組みに携わりたいと考えています。
+          自分で体験し、そこで得た気づきを次の行動につなげることを大切にしています。農業に関心を持った人が、自分に合った形で関われるきっかけを増やすため、人と農をつなぐ企画や仕組みに携わりたいと考えています。
         </p>
         <div class="profile-summary">
           <div class="profile-avatar">吉岡</div>
@@ -126,6 +152,10 @@
             </li>
           </ol>
         </div>
+        <!-- Mobile compact process flow -->
+        <p class="mobile-practice-flow">
+          体験 <span>→</span> 気づき <span>→</span> 整理 <span>→</span> 方法 <span>→</span> 改善
+        </p>
       </div>
     </div>
     <div class="scroll-indicator">
@@ -182,10 +212,7 @@
               <div class="timeline-content">
                 <h4>体験から考えたこと</h4>
                 <p>
-                  農業の負担だけでなく、作物づくりの過程や魅力にも目を向け、実際に関わる人を増やしたいと考えるようになりました。
-                </p>
-                <p class="nested-story">
-                  こうした経験から、農業の負担だけでなく、その過程や魅力も伝え、農業に関わるきっかけを増やす取り組みに携わりたいと考えています。
+                  農業には外から見えにくい負担がある一方、作物づくりに直接関わる面白さもあると知りました。こうした経験から、農業の過程や魅力を伝え、関心を持った人が実際に関わるきっかけを増やす取り組みに携わりたいと考えています。
                 </p>
               </div>
             </div>
@@ -226,8 +253,8 @@
           <div class="strength-proof">関連する経験：農業デイワーク、オープンキャンパス運営</div>
         </div>
         <div class="strength-card glass-card">
-          <h4>2. 声や情報を整理して企画に変える力</h4>
-          <p>複数の声や状況から、解決すべき課題と必要な方法を整理します。</p>
+          <h4>2. 体験や意見を整理して企画に変える力</h4>
+          <p>体験したことや周囲から得た意見の要点を整理し、企画や構成に落とし込みます。</p>
           <div class="strength-proof">関連する経験：大学公式Webアプリ、啓発動画の構成設計</div>
         </div>
         <div class="strength-card glass-card">
@@ -236,8 +263,8 @@
           <div class="strength-proof">関連する経験：教職員・有志メンバーとの調整、HabitSparkの意見反映</div>
         </div>
         <div class="strength-card glass-card">
-          <h4>4. 相手に伝わる形へ変える力</h4>
-          <p>複雑な情報を、映像、Web、文章など目的に合った方法で表現します。</p>
+          <h4>4. 相手に合わせて伝え方を変える力</h4>
+          <p>相手の関心や理解度に合わせて、映像、Web、文章、説明方法を選びます。</p>
           <div class="strength-proof">関連する経験：フィッシング詐欺対策啓発動画、LITALICOワンダーでの指導</div>
         </div>
       </div>
@@ -260,7 +287,7 @@
         <article class="card work-card">
           <div class="card-badge">公式採用／公開準備中</div>
           <div class="card-icon"><i data-lucide="users"></i></div>
-          <h3 class="card-title">1. 長崎大学オープンキャンパス公式Webアプリ</h3>
+          <h3 class="card-title">長崎大学オープンキャンパス公式Webアプリ</h3>
           <p class="card-text">
             展示を探しにくいという課題から、スマホで場所と内容を確認できるWebアプリを企画しました。大学公式として採用され、2026年7月の公開に向けて準備を進めています。
           </p>
@@ -270,7 +297,7 @@
             <span>企画提案</span>
             <span>関係者調整</span>
           </div>
-          <button type="button" class="card-detail-button" onclick="openModal('modal-oc')" aria-haspopup="dialog">
+          <button type="button" class="card-detail-button" onclick="openModal('modal-oc')" aria-controls="modal-oc">
             詳細プロセスを見る <i data-lucide="chevron-right"></i>
           </button>
         </article>
@@ -279,9 +306,9 @@
         <article class="card work-card">
           <div class="card-badge">受賞実績／チーム制作</div>
           <div class="card-icon"><i data-lucide="award"></i></div>
-          <h3 class="card-title">2. フィッシング詐欺対策啓発動画</h3>
+          <h3 class="card-title">フィッシング詐欺対策啓発動画</h3>
           <p class="card-text">
-            警察のボランティア活動を通して、同世代の若者にもフィッシング詐欺の被害が広がっていることを知りました。企画の提案から映像制作まで主導した結果、フィッシング対策部門の最優秀作品に選ばれ、サイバー警察局長賞を受賞しました。
+            同世代の若者にもフィッシング詐欺の被害が広がっていることから、30秒の啓発動画を企画しました。企画・構成・映像制作を主導し、フィッシング対策部門の最優秀作品に選ばれました。
           </p>
           <div class="card-author-role"><strong>担当：</strong>企画、構成、ディレクション、映像制作</div>
           <div class="card-tags">
@@ -289,7 +316,7 @@
             <span>ディレクション</span>
             <span>情報発信</span>
           </div>
-          <button type="button" class="card-detail-button" onclick="openModal('modal-cg')" aria-haspopup="dialog">
+          <button type="button" class="card-detail-button" onclick="openModal('modal-cg')" aria-controls="modal-cg">
             詳細プロセスを見る <i data-lucide="chevron-right"></i>
           </button>
         </article>
@@ -297,8 +324,8 @@
         <!-- Work 3 -->
         <article class="card work-card">
           <div class="card-badge">大学院研究／比較検証中</div>
-          <div class="card-icon"><i data-lucide="shield-alert"></i></div>
-          <h3 class="card-title">3. 低コストな360度3D映像生成の研究</h3>
+          <div class="card-icon"><i data-lucide="scan-line"></i></div>
+          <h3 class="card-title">低コストな360度3D映像生成の研究</h3>
           <p class="card-text">
             市販の360度カメラを用いて機材費を抑え、境界の不自然さが少ない360度3D映像を生成する手法を研究しています。人物と背景を分けて扱う手法により、従来手法より処理時間を短縮できることを確認しました。
           </p>
@@ -308,8 +335,8 @@
             <span>比較検証</span>
             <span>試行改善</span>
           </div>
-          <button type="button" class="card-detail-button" onclick="openModal('modal-res')" aria-haspopup="dialog">
-            研究の詳細とリポジトリを見る <i data-lucide="chevron-right"></i>
+          <button type="button" class="card-detail-button" onclick="openModal('modal-res')" aria-controls="modal-res">
+            研究の詳細を見る <i data-lucide="chevron-right"></i>
           </button>
         </article>
 
@@ -317,9 +344,9 @@
         <article class="card work-card">
           <div class="card-badge">公開・継続改善／個人運営</div>
           <div class="card-icon"><i data-lucide="smartphone"></i></div>
-          <h3 class="card-title">4. iOSアプリ「HabitSpark」</h3>
+          <h3 class="card-title">iOSアプリ「HabitSpark」</h3>
           <p class="card-text">
-            習慣が続かなかった自身の経験からアプリを企画し、公開後は利用者のレビューをもとに機能を改善しました。企画から公開後の改善まで、一連の流れを自ら進めた経験です。
+            習慣が続かなかった自身の経験からアプリを企画し、公開後は利用者のレビューをもとに機能を改善しました。企画から公開後の改善まで一貫して担当しています。
           </p>
           <div class="card-author-role"><strong>担当：</strong>企画、設計、開発、公開、利用者の意見を基にした改善</div>
           <div class="card-tags">
@@ -327,7 +354,7 @@
             <span>利用者理解</span>
             <span>継続改善</span>
           </div>
-          <button type="button" class="card-detail-button" onclick="openModal('modal-hs')" aria-haspopup="dialog">
+          <button type="button" class="card-detail-button" onclick="openModal('modal-hs')" aria-controls="modal-hs">
             詳細プロセスを見る <i data-lucide="chevron-right"></i>
           </button>
         </article>
@@ -347,10 +374,10 @@
       </div>
       <div class="role-box glass-card-accent">
         <p>
-          将来は、農家や利用者などの声をもとに課題を整理し、立場の異なる関係者をつなぎながら、企画や改善を前に進める役割を担いたいと考えています。
+          将来は、農家や利用者の声をもとに課題を整理し、社内外の関係者と連携しながら、サービスや事業の改善を前に進めたいです。
         </p>
         <p>
-          サービスの企画や運営、情報発信、実証、改善など、現場に必要な取り組みを選び、周囲と協力しながら形にしたいです。Web開発や映像制作の経験も、課題解決のために活用できる手段の一つとして生かします。
+          企画・運営、情報発信、実証などの中から現場に必要な方法を選び、Web開発や映像制作の経験も、課題を解決する手段として生かします。
         </p>
       </div>
     </div>
@@ -472,12 +499,23 @@
         <h2>吉岡 晃基 の関連リンク</h2>
         <p class="cta-text" style="max-width: 600px; margin: 0 auto 2rem auto; font-weight: 700; line-height: 1.8; color: var(--text-primary);">
           農業を知り、体験し、自分に合った形で関わる。<br>
-          そのきっかけを増やしたいと考えています。
+          そうした一歩を後押しする企画や仕組みをつくりたいと考えています。
         </p>
         
         <div class="hr-links-footer">
-          <a href="https://github.com/yoshiototora" target="_blank" rel="noopener noreferrer" class="link-btn github-link"><i data-lucide="github"></i> GitHub Profile</a>
-          <a href="https://qiita.com/yoshiototora" target="_blank" rel="noopener noreferrer" class="link-btn qiita-link"><i data-lucide="book-open"></i> Qiita (@yoshiototora)</a>
+          <div style="text-align: left; max-width: 400px; margin: 0 auto;">
+            <h3 style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 0.5rem;">技術・記録</h3>
+            <a href="https://github.com/yoshiototora" target="_blank" rel="noopener noreferrer" class="link-btn github-link" style="display: flex; margin-bottom: 0.5rem;">
+              <i data-lucide="github"></i> GitHub Profile
+              <i data-lucide="external-link" aria-hidden="true" style="margin-left:auto; opacity:0.5;"></i>
+              <span class="visually-hidden">新しいタブで開く</span>
+            </a>
+            <a href="https://qiita.com/yoshiototora" target="_blank" rel="noopener noreferrer" class="link-btn qiita-link" style="display: flex;">
+              <i data-lucide="book-open"></i> Qiita (@yoshiototora)
+              <i data-lucide="external-link" aria-hidden="true" style="margin-left:auto; opacity:0.5;"></i>
+              <span class="visually-hidden">新しいタブで開く</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -581,12 +619,38 @@
         </div>
 
         <div class="project-links-container">
-          <a href="https://www.npa.go.jp/bureau/cyber/koho/news/2026318contest.html" target="_blank" rel="noopener noreferrer" class="link-btn"><i data-lucide="shield-check"></i> 警察庁 受賞詳細</a>
-          <a href="https://www.nagasaki-u.ac.jp/ja/news/news4988.html" target="_blank" rel="noopener noreferrer" class="link-btn"><i data-lucide="globe"></i> 長崎大学 NEWS掲載</a>
-          <a href="https://news.jp/i/1421693088140444541?c=39546741839462401" target="_blank" rel="noopener noreferrer" class="link-btn"><i data-lucide="newspaper"></i> 共同通信 記事</a>
-          <a href="https://www.yomiuri.co.jp/local/kyushu/news/20260619-GYS1T00048/" target="_blank" rel="noopener noreferrer" class="link-btn"><i data-lucide="newspaper"></i> 読売新聞 記事</a>
-          <a href="https://newsdig.tbs.co.jp/articles/nbc/2738655?display=1" target="_blank" rel="noopener noreferrer" class="link-btn"><i data-lucide="tv"></i> NBC長崎放送 記事</a>
-          <a href="https://www.youtube.com/watch?v=2JKH-jF41Kk" target="_blank" rel="noopener noreferrer" class="link-btn youtube-link"><i data-lucide="play"></i> YouTube（完成映像）</a>
+          <a href="https://www.youtube.com/watch?v=2JKH-jF41Kk" target="_blank" rel="noopener noreferrer" class="link-btn youtube-link">
+            <i data-lucide="play"></i> YouTube（完成映像）
+            <i data-lucide="external-link" aria-hidden="true" style="margin-left:5px; opacity:0.5; width:14px; height:14px;"></i>
+            <span class="visually-hidden">新しいタブで開く</span>
+          </a>
+          <a href="https://www.npa.go.jp/bureau/cyber/koho/news/2026318contest.html" target="_blank" rel="noopener noreferrer" class="link-btn">
+            <i data-lucide="shield-check"></i> 警察庁 受賞詳細
+            <i data-lucide="external-link" aria-hidden="true" style="margin-left:5px; opacity:0.5; width:14px; height:14px;"></i>
+            <span class="visually-hidden">新しいタブで開く</span>
+          </a>
+          
+          <details style="display:inline-block; margin-top:0.5rem; width:100%;">
+            <summary style="cursor:pointer; font-size:0.75rem; color:var(--text-secondary); margin-top:0.3rem;">関連するメディア掲載を見る</summary>
+            <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem;">
+              <a href="https://www.nagasaki-u.ac.jp/ja/news/news4988.html" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <i data-lucide="globe"></i> 長崎大学 NEWS掲載
+                <span class="visually-hidden">新しいタブで開く</span>
+              </a>
+              <a href="https://news.jp/i/1421693088140444541?c=39546741839462401" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <i data-lucide="newspaper"></i> 共同通信 記事
+                <span class="visually-hidden">新しいタブで開く</span>
+              </a>
+              <a href="https://www.yomiuri.co.jp/local/kyushu/news/20260619-GYS1T00048/" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <i data-lucide="newspaper"></i> 読売新聞 記事
+                <span class="visually-hidden">新しいタブで開く</span>
+              </a>
+              <a href="https://newsdig.tbs.co.jp/articles/nbc/2738655?display=1" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <i data-lucide="tv"></i> NBC長崎放送 記事
+                <span class="visually-hidden">新しいタブで開く</span>
+              </a>
+            </div>
+          </details>
         </div>
         
         <h4>1. 背景・課題</h4>
@@ -629,12 +693,22 @@
         </div>
 
         <div class="project-links-container">
-          <a href="https://github.com/yoshiototora/360-video-synthesis-v2" target="_blank" rel="noopener noreferrer" class="link-btn github-link"><i data-lucide="github"></i> 研究コードを見る</a>
-          <details style="display:inline-block;">
+          <a href="https://github.com/yoshiototora/360-video-synthesis-v2" target="_blank" rel="noopener noreferrer" class="link-btn github-link">
+            <i data-lucide="github"></i> 研究コードを見る
+            <i data-lucide="external-link" aria-hidden="true" style="margin-left:5px; opacity:0.5; width:14px; height:14px;"></i>
+            <span class="visually-hidden">新しいタブで開く</span>
+          </a>
+          <details style="display:inline-block; width:100%; margin-top:0.5rem;">
             <summary style="cursor:pointer; font-size:0.75rem; color:var(--text-secondary); margin-top:0.3rem;">技術的な詳細リポジトリを見る</summary>
             <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem;">
-              <a href="https://github.com/yoshiototora/vr-ssq-evaluation" target="_blank" rel="noopener noreferrer" class="link-btn github-link"><i data-lucide="github"></i> 立体映像評価用</a>
-              <a href="https://github.com/yoshiototora/Quest3S_VideoTest" target="_blank" rel="noopener noreferrer" class="link-btn github-link"><i data-lucide="github"></i> Quest 3S 表示テスト用</a>
+              <a href="https://github.com/yoshiototora/vr-ssq-evaluation" target="_blank" rel="noopener noreferrer" class="link-btn github-link">
+                <i data-lucide="github"></i> 立体映像評価用
+                <span class="visually-hidden">新しいタブで開く</span>
+              </a>
+              <a href="https://github.com/yoshiototora/Quest3S_VideoTest" target="_blank" rel="noopener noreferrer" class="link-btn github-link">
+                <i data-lucide="github"></i> Quest 3S 表示テスト用
+                <span class="visually-hidden">新しいタブで開く</span>
+              </a>
             </div>
           </details>
         </div>
@@ -676,8 +750,20 @@
         </div>
 
         <div class="project-links-container">
-          <a href="https://apps.apple.com/jp/app/habitspark/id6762178668" target="_blank" rel="noopener noreferrer" class="link-btn"><i data-lucide="download"></i> App Store (HabitSpark)</a>
-          <a href="https://github.com/yoshiototora/GoalTracker" target="_blank" rel="noopener noreferrer" class="link-btn github-link"><i data-lucide="github"></i> GitHub (GoalTracker)</a>
+          <a href="https://apps.apple.com/jp/app/habitspark/id6762178668" target="_blank" rel="noopener noreferrer" class="link-btn">
+            <i data-lucide="download"></i> App Store (HabitSpark)
+            <i data-lucide="external-link" aria-hidden="true" style="margin-left:5px; opacity:0.5; width:14px; height:14px;"></i>
+            <span class="visually-hidden">新しいタブで開く</span>
+          </a>
+          <details style="display:inline-block; width:100%; margin-top:0.5rem;">
+            <summary style="cursor:pointer; font-size:0.75rem; color:var(--text-secondary); margin-top:0.3rem;">開発コードを見る</summary>
+            <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem;">
+              <a href="https://github.com/yoshiototora/GoalTracker" target="_blank" rel="noopener noreferrer" class="link-btn github-link">
+                <i data-lucide="github"></i> GitHub (GoalTracker)
+                <span class="visually-hidden">新しいタブで開く</span>
+              </a>
+            </div>
+          </details>
         </div>
         
         <h4>1. 背景・課題</h4>
@@ -700,6 +786,8 @@
       </div>
     </div>
   </div>
+
+  </main>
 
   <script src="script.js"></script>
 </body>

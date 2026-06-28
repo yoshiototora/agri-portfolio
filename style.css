@@ -104,6 +104,29 @@ body {
   padding-top: calc(var(--header-height) + 20px);
 }
 
+section {
+  scroll-margin-top: calc(var(--header-height) + 24px);
+}
+
+.skip-to-main {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 2000;
+  transform: translateY(-150%);
+  background: var(--brand-primary);
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--border-radius-sm);
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.skip-to-main:focus {
+  transform: translateY(0);
+}
+
 html[data-font="ud"] body {
   font-weight: 700;
 }
@@ -313,7 +336,7 @@ html[data-theme="dark"] .btn-group {
   transition: var(--transition-smooth);
 }
 
-.menu-item span {
+.desktop-menu-label {
   position: absolute;
   left: 50px;
   background: var(--bg-surface-opaque);
@@ -330,10 +353,14 @@ html[data-theme="dark"] .btn-group {
   transition: var(--transition-smooth);
 }
 
-.menu-item:hover span {
+.menu-item:hover .desktop-menu-label {
   opacity: 1;
   visibility: visible;
   left: 55px;
+}
+
+.mobile-menu-label {
+  display: none;
 }
 
 .menu-item.active, .menu-item:hover {
@@ -525,6 +552,10 @@ html[data-theme="dark"] .btn-group {
   width: 100%;
   max-width: 320px;
   margin: 0 auto;
+}
+
+.mobile-practice-flow {
+  display: none;
 }
 [data-theme="dark"] .flow-chart-graphic {
   background: rgba(30, 41, 59, 0.4);
@@ -778,14 +809,14 @@ html[data-theme="dark"] .glass-card-accent {
   padding: 2.2rem;
   display: flex;
   flex-direction: column;
-  cursor: pointer;
+  cursor: default;
   border: 1px solid rgba(16, 185, 129, 0.08);
 }
 
 .work-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(16, 185, 129, 0.4);
-  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.08);
+  transform: none;
+  border-color: var(--border-color);
+  box-shadow: 0 10px 28px var(--shadow-color);
 }
 
 .card-badge {
@@ -811,9 +842,9 @@ html[data-theme="dark"] .glass-card-accent {
 }
 
 .work-card:hover .card-icon {
+  /* Subtle change, no rotation or scale to prevent it looking clickable as a whole */
   background: var(--brand-primary);
   color: white;
-  transform: rotate(5deg) scale(1.05);
 }
 
 .card-title {
@@ -907,7 +938,8 @@ html[data-theme="dark"] .glass-card-accent {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin-top: 14.5rem; /* Pushes the sidebar down to align with the start of the timeline */
+  margin-top: 0;
+  align-self: center;
 }
 
 .vision-highlight-box {
@@ -1456,8 +1488,18 @@ button.close-btn {
     border-radius: 0;
   }
   
-  .menu-item span {
+  .desktop-menu-label {
     display: none;
+  }
+  
+  .mobile-menu-label {
+    display: block;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    background: none;
+    box-shadow: none;
+    padding: 0;
   }
   
   body {
@@ -1466,6 +1508,28 @@ button.close-btn {
 }
 
 @media (max-width: 768px) {
+  .section {
+    padding: 4rem 0;
+  }
+
+  .flow-chart-graphic {
+    display: none;
+  }
+
+  .mobile-practice-flow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    margin-top: 1.5rem;
+  }
+
   .header-container {
     flex-direction: column;
     gap: 0.8rem;
@@ -1780,6 +1844,39 @@ button.close-btn {
   .wide-table-box {
     width: 100%;
   }
+
+  /* Table becomes vertical cards */
+  .profile-table {
+    min-width: 0;
+  }
+  
+  .profile-table thead {
+    display: none;
+  }
+  
+  .profile-table td {
+    display: block;
+    padding: 0.4rem 0;
+    border: none;
+  }
+  
+  .profile-table td:first-child {
+    font-weight: 800;
+    color: var(--brand-primary);
+    font-size: 0.8rem;
+  }
+  
+  .profile-table tr {
+    display: block;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.8rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 3rem 0;
+  }
 }
 
 /* Small screens: <= 360px (Ultra-mobile scale down) */
@@ -1788,4 +1885,3 @@ button.close-btn {
     font-size: 1.7rem;
   }
 }
-
