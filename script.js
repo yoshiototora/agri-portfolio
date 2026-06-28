@@ -23,8 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Scrollspy for navigation active state
-  const sections = document.querySelectorAll('section');
-  const navItems = document.querySelectorAll('.menu-item');
+  const navItems = [...document.querySelectorAll('.menu-item')];
+  const sections = navItems
+    .map((item) => document.querySelector(item.getAttribute('href')))
+    .filter(Boolean);
 
   window.addEventListener('scroll', () => {
     let current = '';

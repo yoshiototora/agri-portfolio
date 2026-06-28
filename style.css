@@ -692,21 +692,30 @@ html[data-theme="dark"] .glass-card-accent {
 .card-detail-button {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  background: none;
-  border: none;
-  padding: 0;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 44px;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--brand-primary);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--brand-primary);
+  font-family: inherit;
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--brand-primary);
   cursor: pointer;
-  transition: var(--transition-smooth);
-  font-family: inherit;
   margin-top: auto;
+  transition: var(--transition-smooth);
 }
 
 .card-detail-button:hover {
-  color: var(--brand-secondary);
+  background: var(--brand-primary);
+  color: #fff;
+}
+
+.card-detail-button:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 3px;
 }
 
 .work-card:hover .card-detail-button i {

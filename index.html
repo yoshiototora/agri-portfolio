@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>吉岡晃基｜現場起点の企画・実践ポートフォリオ</title>
-  <meta name="description" content="現場で見つけた課題を、対話と工夫で形にする。農業現場での経験や、企画、発信、サービス改善、研究への取り組みを紹介します。">
+  <meta name="description" content="自分で確かめた気づきを、対話と工夫で形にする。農業現場での経験や、企画、発信、サービス改善、研究への取り組みを紹介します。">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="light-mode">
+<body>
   <a href="#main-content" class="skip-to-main">本文へスキップ</a>
 
   <!-- ==================== UNIVERSAL DESIGN HEADER ==================== -->
@@ -90,7 +90,7 @@
     </a>
   </nav>
  
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
   <!-- ==================== HERO SECTION ==================== -->
   <section id="hero" class="hero-section">
     <div class="hero-bg-art">
@@ -285,7 +285,7 @@
       <div class="works-grid">
         <!-- Work 1 -->
         <article class="card work-card">
-          <div class="card-badge">公式採用／公開準備中</div>
+          <div class="card-badge">大学公式採用・公開準備中</div>
           <div class="card-icon"><i data-lucide="users"></i></div>
           <h3 class="card-title">長崎大学オープンキャンパス公式Webアプリ</h3>
           <p class="card-text">
@@ -297,64 +297,64 @@
             <span>企画提案</span>
             <span>関係者調整</span>
           </div>
-          <button type="button" class="card-detail-button" onclick="openModal('modal-oc')" aria-controls="modal-oc">
+          <button type="button" class="card-detail-button" onclick="openModal('modal-oc')" aria-controls="modal-oc" aria-haspopup="dialog">
             詳細プロセスを見る <i data-lucide="chevron-right"></i>
           </button>
         </article>
 
         <!-- Work 2 -->
         <article class="card work-card">
-          <div class="card-badge">受賞実績／チーム制作</div>
+          <div class="card-badge">サイバー警察局長賞受賞</div>
           <div class="card-icon"><i data-lucide="award"></i></div>
           <h3 class="card-title">フィッシング詐欺対策啓発動画</h3>
           <p class="card-text">
             同世代の若者にもフィッシング詐欺の被害が広がっていることから、30秒の啓発動画を企画しました。企画・構成・映像制作を主導し、フィッシング対策部門の最優秀作品に選ばれました。
           </p>
-          <div class="card-author-role"><strong>担当：</strong>企画、構成、ディレクション、映像制作</div>
+          <div class="card-author-role"><strong>体制：</strong>3名チーム<br><strong>担当：</strong>企画、構成、ディレクション、映像制作</div>
           <div class="card-tags">
             <span>構成設計</span>
             <span>ディレクション</span>
             <span>情報発信</span>
           </div>
-          <button type="button" class="card-detail-button" onclick="openModal('modal-cg')" aria-controls="modal-cg">
+          <button type="button" class="card-detail-button" onclick="openModal('modal-cg')" aria-controls="modal-cg" aria-haspopup="dialog">
             詳細プロセスを見る <i data-lucide="chevron-right"></i>
           </button>
         </article>
 
         <!-- Work 3 -->
         <article class="card work-card">
-          <div class="card-badge">大学院研究／比較検証中</div>
+          <div class="card-badge">卒論発表済・大学院で発展中</div>
           <div class="card-icon"><i data-lucide="scan-line"></i></div>
           <h3 class="card-title">低コストな360度3D映像生成の研究</h3>
           <p class="card-text">
-            市販の360度カメラを用いて機材費を抑え、境界の不自然さが少ない360度3D映像を生成する手法を研究しています。人物と背景を分けて扱う手法により、従来手法より処理時間を短縮できることを確認しました。
+            学部の卒業研究で、市販の360度カメラを用いた3D映像合成手法を構築・検証し、卒業論文として発表しました。現在は大学院で、深度推定と前景分離を用いて人物の境界破綻を抑える手法へ発展させ、比較検証を進めています。
           </p>
-          <div class="card-author-role"><strong>担当：</strong>手法設計、実装、実験環境構築、比較評価</div>
+          <div class="card-author-role"><strong>体制：</strong>個人研究<br><strong>担当：</strong>手法設計、実装、実験環境構築、比較評価</div>
           <div class="card-tags">
             <span>仮説設定</span>
             <span>比較検証</span>
             <span>試行改善</span>
           </div>
-          <button type="button" class="card-detail-button" onclick="openModal('modal-res')" aria-controls="modal-res">
+          <button type="button" class="card-detail-button" onclick="openModal('modal-res')" aria-controls="modal-res" aria-haspopup="dialog">
             研究の詳細を見る <i data-lucide="chevron-right"></i>
           </button>
         </article>
 
         <!-- Work 4 -->
         <article class="card work-card">
-          <div class="card-badge">公開・継続改善／個人運営</div>
+          <div class="card-badge">App Store公開・継続改善中</div>
           <div class="card-icon"><i data-lucide="smartphone"></i></div>
           <h3 class="card-title">iOSアプリ「HabitSpark」</h3>
           <p class="card-text">
             習慣が続かなかった自身の経験からアプリを企画し、公開後は利用者のレビューをもとに機能を改善しました。企画から公開後の改善まで一貫して担当しています。
           </p>
-          <div class="card-author-role"><strong>担当：</strong>企画、設計、開発、公開、利用者の意見を基にした改善</div>
+          <div class="card-author-role"><strong>体制：</strong>個人運営<br><strong>担当：</strong>企画、設計、開発、公開、利用者の意見を基にした改善</div>
           <div class="card-tags">
             <span>課題発見</span>
             <span>利用者理解</span>
             <span>継続改善</span>
           </div>
-          <button type="button" class="card-detail-button" onclick="openModal('modal-hs')" aria-controls="modal-hs">
+          <button type="button" class="card-detail-button" onclick="openModal('modal-hs')" aria-controls="modal-hs" aria-haspopup="dialog">
             詳細プロセスを見る <i data-lucide="chevron-right"></i>
           </button>
         </article>
@@ -503,6 +503,25 @@
         </p>
         
         <div class="hr-links-footer">
+          <div style="text-align: left; max-width: 400px; margin: 0 auto; margin-bottom: 2rem;">
+            <h3 style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 0.5rem;">作品・掲載</h3>
+            <a href="https://www.youtube.com/watch?v=2JKH-jF41Kk" target="_blank" rel="noopener noreferrer" class="link-btn youtube-link" style="display: flex; margin-bottom: 0.5rem;">
+              <i data-lucide="play"></i> フィッシング詐欺対策啓発動画
+              <i data-lucide="external-link" aria-hidden="true" style="margin-left:auto; opacity:0.5;"></i>
+              <span class="visually-hidden">新しいタブで開く</span>
+            </a>
+            <a href="https://www.npa.go.jp/bureau/cyber/koho/news/2026318contest.html" target="_blank" rel="noopener noreferrer" class="link-btn" style="display: flex; margin-bottom: 0.5rem;">
+              <i data-lucide="shield-check"></i> 受賞掲載ページ
+              <i data-lucide="external-link" aria-hidden="true" style="margin-left:auto; opacity:0.5;"></i>
+              <span class="visually-hidden">新しいタブで開く</span>
+            </a>
+            <a href="https://apps.apple.com/jp/app/habitspark/id6762178668" target="_blank" rel="noopener noreferrer" class="link-btn" style="display: flex;">
+              <i data-lucide="download"></i> HabitSpark (App Store)
+              <i data-lucide="external-link" aria-hidden="true" style="margin-left:auto; opacity:0.5;"></i>
+              <span class="visually-hidden">新しいタブで開く</span>
+            </a>
+          </div>
+
           <div style="text-align: left; max-width: 400px; margin: 0 auto;">
             <h3 style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 0.5rem;">技術・記録</h3>
             <a href="https://github.com/yoshiototora" target="_blank" rel="noopener noreferrer" class="link-btn github-link" style="display: flex; margin-bottom: 0.5rem;">
@@ -528,7 +547,7 @@
     <div class="modal-content glass-card">
       <button class="close-btn" onclick="closeModal('modal-oc')" aria-label="閉じる">&times;</button>
       <div class="modal-header">
-        <span class="modal-tag">公式採用／公開準備中</span>
+        <span class="modal-tag">大学公式採用・公開準備中</span>
         <h3 id="modal-oc-title">長崎大学オープンキャンパス公式Webアプリ</h3>
         <p class="modal-sub">高校生向けマップ連動アプリの開発と、運営者の負担を減らす仕組みづくり</p>
       </div>
@@ -608,13 +627,13 @@
     <div class="modal-content glass-card">
       <button class="close-btn" onclick="closeModal('modal-cg')" aria-label="閉じる">&times;</button>
       <div class="modal-header">
-        <span class="modal-tag">受賞実績／チーム制作</span>
+        <span class="modal-tag">サイバー警察局長賞受賞</span>
         <h3 id="modal-cg-title">フィッシング詐欺対策啓発動画</h3>
         <p class="modal-sub">警察の防犯ボランティアにおける若年層向け啓発映像制作（最優秀作品・サイバー警察局長賞）</p>
       </div>
       <div class="modal-body">
         <div class="modal-meta-grid">
-          <div><strong>担当：</strong>企画、構成、ディレクション、映像制作</div>
+          <div><strong>体制：</strong>3名チーム<br><strong>担当：</strong>企画、構成、ディレクション、映像制作</div>
           <div><strong>技術スタック：</strong>Blender / Adobe Premiere Pro / Git</div>
         </div>
 
@@ -682,13 +701,13 @@
     <div class="modal-content glass-card">
       <button class="close-btn" onclick="closeModal('modal-res')" aria-label="閉じる">&times;</button>
       <div class="modal-header">
-        <span class="modal-tag">大学院研究／比較検証中</span>
+        <span class="modal-tag">卒論発表済・大学院で発展中</span>
         <h3 id="modal-res-title">低コストな360°3D映像生成と境界破綻の低減</h3>
         <p class="modal-sub">市販のカメラを用いて機材費を抑え、つなぎ目のズレが少ない360°3D映像を生成する研究</p>
       </div>
       <div class="modal-body">
         <div class="modal-meta-grid">
-          <div><strong>担当：</strong>手法設計、実装、実験環境構築、比較評価</div>
+          <div><strong>体制：</strong>個人研究<br><strong>担当：</strong>手法設計、実装、実験環境構築、比較評価</div>
           <div><strong>技術スタック：</strong>Python / PyTorch / OpenCV / Unity / 3Dプリンター</div>
         </div>
 
@@ -714,7 +733,7 @@
         </div>
         
         <h4>1. 背景・課題</h4>
-        <p>高価な専用機材と大きな処理負荷によって、360度3D映像の活用場面が限られています。そこで、市販の360度カメラを用いて機材費を抑え、境界の不自然さが少ない映像を生成する手法を研究しています。</p>
+        <p>学部の卒業研究では、市販の360度カメラを用いて、機材費を抑えながら360度3D映像を生成する基礎手法を構築し、卒業論文として発表しました。一方、人物がカメラ間の境界を横切る際に、輪郭が崩れる課題が残りました。そこで大学院では、深度推定と前景分離を加え、人物の境界破綻を抑える手法へ発展させています。</p>
         
         <h4>2. 自分の役割</h4>
         <p>研究テーマの設定から、合成アルゴリズムの設計・プログラミング、Unityを用いたHMD（Quest 3S）表示テスト環境の構築、比較実験用のカメラ固定台の設計・3Dプリントまで一貫して行っています。</p>
@@ -726,7 +745,7 @@
         <p>研究を進める上で、指導教員やゼミのメンバーに進捗を共有し、映像の違和感やつなぎ目の見え方について意見をもらいました。得られたアドバイスをもとに、人物の輪郭部分の補正アルゴリズムを改良しました。</p>
 
         <h4>5. 結果</h4>
-        <p>同一の映像と実行環境で比較し、人物と背景を分けて扱う提案手法が、従来手法より処理時間を短縮できることを確認しました。人物と背景を分けて扱う方法により、被写体の輪郭を保ちながら境界の不自然さを抑えることができました。現在はQuest 3Sを用いた視聴比較実験を進めています。</p>
+        <p>同一の映像と実行環境で比較し、人物と背景を分けて扱う提案手法が、従来手法より処理時間を短縮できることを確認しました。また、被写体の輪郭を保ちながら、境界の不自然さを抑えられることも確認しました。現在は、Quest 3Sを用いた視聴比較実験を進めています。</p>
 
         <h4>6. 学び</h4>
         <p>課題に対して原因を仮説検証し、ソフト（プログラム）とハード（固定台の自作）の両面からアプローチすることの有効性を学びました。また、客観的に評価するために「同一条件」で比較することの重要性を学びました。</p>
@@ -739,13 +758,13 @@
     <div class="modal-content glass-card">
       <button class="close-btn" onclick="closeModal('modal-hs')" aria-label="閉じる">&times;</button>
       <div class="modal-header">
-        <span class="modal-tag">公開・継続改善／個人運営</span>
+        <span class="modal-tag">App Store公開・継続改善中</span>
         <h3 id="modal-hs-title">iOSアプリ「HabitSpark」</h3>
         <p class="modal-sub">一度できなくても挫折しない「失敗しても続けられる仕組み」と、レビューを踏まえた改善</p>
       </div>
       <div class="modal-body">
         <div class="modal-meta-grid">
-          <div><strong>担当：</strong>企画、設計、開発、公開、利用者の意見を基にした改善</div>
+          <div><strong>体制：</strong>個人運営<br><strong>担当：</strong>企画、設計、開発、公開、利用者の意見を基にした改善</div>
           <div><strong>技術スタック：</strong>Swift / SwiftUI / SwiftData / Git</div>
         </div>
 
