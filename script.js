@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.key === 'Tab') {
       const activeModal = document.querySelector('.modal.is-open');
       if (activeModal) {
-        const focusableElements = activeModal.querySelectorAll('button, [href], input, select, textarea, [tabindex="0"]');
+        const focusableElements = getFocusableElements(activeModal);
         if (focusableElements.length > 0) {
           const firstElement = focusableElements[0];
           const lastElement = focusableElements[focusableElements.length - 1];
@@ -100,6 +100,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
+
+function getFocusableElements(container) {
+  const candidates = container.querySelectorAll('button, [href], input, select, textarea, [tabindex="0"]');
+  return [...candidates].filter((element) => {
+    const isHiddenDetailsContent = element.closest('details:not([open])');
+    const isDisabled = element.disabled || element.getAttribute('aria-hidden') === 'true';
+    const isVisible = Boolean(element.offsetWidth || element.offsetHeight || element.getClientRects().length);
+    return !isHiddenDetailsContent && !isDisabled && isVisible;
+  });
+}
+
+function setPageInert(isInert) {
+  document.querySelectorAll('#ud-header, .side-menu, main > section').forEach((element) => {
+    element.inert = isInert;
+    if (isInert) {
+      element.setAttribute('inert', '');
+    } else {
+      element.removeAttribute('inert');
+    }
+  });
+}
 
 // UI Sync Helper
 function syncAccessibilityUI(theme, size, font) {
@@ -207,6 +228,8 @@ function openModal(id) {
   if (modal) {
     previousFocusedElement = document.activeElement;
     modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    setPageInert(true);
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
     
     // Focus the close button or first focusable element
@@ -221,6 +244,8 @@ function closeModal(id) {
   const modal = document.getElementById(id);
   if (modal) {
     modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    setPageInert(false);
     document.body.style.overflow = ''; // Restore scrolling
     
     // Restore focus

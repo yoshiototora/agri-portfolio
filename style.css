@@ -814,6 +814,18 @@ html[data-theme="dark"] .glass-card-accent {
   gap: 2rem;
 }
 
+.works-subheading {
+  font-size: 1.05rem;
+  color: var(--brand-primary);
+  margin: 0 0 1rem;
+  padding-left: 0.75rem;
+  border-left: 4px solid var(--brand-primary);
+}
+
+.works-subheading-secondary {
+  margin-top: 2.5rem;
+}
+
 .work-card {
   padding: 2.2rem;
   display: flex;
@@ -2409,9 +2421,13 @@ html[data-theme="dark"] .flow-chart-graphic {
 
   .side-menu {
     display: grid;
-    grid-template-columns: repeat(8, minmax(0, 1fr));
-    gap: 0.15rem;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.25rem;
     padding: 0.45rem 0.5rem calc(0.45rem + env(safe-area-inset-bottom));
+  }
+
+  .menu-item.mobile-secondary {
+    display: none;
   }
 
   .menu-item {
@@ -2429,7 +2445,7 @@ html[data-theme="dark"] .flow-chart-graphic {
 
   .mobile-menu-label {
     max-width: 100%;
-    font-size: 0.58rem;
+    font-size: 0.66rem;
     font-weight: 700;
     line-height: 1.05;
     white-space: nowrap;
