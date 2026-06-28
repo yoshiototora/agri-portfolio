@@ -548,12 +548,24 @@ html[data-theme="dark"] .btn-group {
   height: 14px;
   color: var(--brand-primary);
 }
+/* Flow chart: each li is flex-column; arrow appears after the step row */
 .flow-chart-steps {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
+  align-items: stretch;
+  gap: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
+
+.flow-chart-steps > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .flow-chart-step {
   display: flex;
   align-items: center;
@@ -563,21 +575,24 @@ html[data-theme="dark"] .btn-group {
   border-radius: var(--border-radius-sm);
   background: var(--bg-surface-opaque);
   border: 1px solid var(--border-color);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
 }
-.flow-chart-step:hover,
-.flow-chart-step:focus {
-  transform: translateY(-2px);
-  border-color: var(--brand-primary);
-  box-shadow: 0 4px 12px var(--shadow-color);
-  outline: none;
+
+/* Arrow connector between steps */
+.flow-chart-steps > li:not(:last-child)::after {
+  content: '▼';
+  font-size: 0.6rem;
+  color: var(--text-light);
+  line-height: 1;
+  padding: 2px 0;
+  display: block;
 }
-@media (prefers-reduced-motion: reduce) {
-  .flow-chart-step:hover,
-  .flow-chart-step:focus {
-    transform: none;
-  }
+
+/* Remove unused class */
+.flow-chart-step-row {
+  display: none;
 }
+
 .flow-chart-step .step-icon {
   display: flex;
   align-items: center;
@@ -597,17 +612,7 @@ html[data-theme="dark"] .btn-group {
   font-weight: 700;
   color: var(--text-primary);
 }
-.flow-chart-arrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-light);
-  height: 12px;
-}
-.flow-chart-arrow i {
-  width: 14px;
-  height: 14px;
-}
+/* .flow-chart-arrow removed — arrows now via CSS pseudo-elements on li */
 
 /* Root proof and Author Role custom styles */
 .strength-proof {
