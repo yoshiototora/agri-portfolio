@@ -23,10 +23,71 @@
   <!-- ==================== UNIVERSAL DESIGN HEADER ==================== -->
   <header id="ud-header" class="glass-nav">
     <div class="header-container">
-      <div class="logo">
+      <a href="#hero" class="logo" aria-label="トップへ戻る">
         <span class="logo-icon">🌱</span>
         <span class="logo-text">KOKI YOSHIOKA<span>.portfolio</span></span>
+      </a>
+      
+      <!-- Accessibility Controller (User Center) -->
+      <div class="accessibility-panel">
+        <div class="control-group">
+          <span class="control-label"><i data-lucide="type"></i> 文字サイズ</span>
+          <div class="btn-group" role="group" aria-label="文字サイズ変更">
+            <button class="ud-btn active" id="btn-size-normal" onclick="changeSize('normal')" aria-label="文字サイズ標準">標準</button>
+            <button class="ud-btn" id="btn-size-medium" onclick="changeSize('medium')" aria-label="文字サイズ中">中</button>
+            <button class="ud-btn" id="btn-size-large" onclick="changeSize('large')" aria-label="文字サイズ大">大</button>
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <span class="control-label"><i data-lucide="eye"></i> フォント</span>
+          <div class="btn-group" role="group" aria-label="フォント変更">
+            <button class="ud-btn active" id="btn-font-standard" onclick="changeFont('standard')" aria-label="フォント標準">標準</button>
+            <button class="ud-btn" id="btn-font-ud" onclick="changeFont('ud')" title="視認性の高いUDフォントに切り替えます" aria-label="UDフォントに切り替え">UD</button>
+          </div>
+        </div>
+ 
+        <div class="control-group">
+          <button class="theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()" aria-label="ダークモード切り替え">
+            <i data-lucide="moon" id="theme-icon"></i>
+          </button>
+        </div>
       </div>
+    </div>
+  </header>
+ 
+  <!-- Navigation Menu -->
+  <nav class="side-menu" aria-label="ページ内ナビゲーション">
+    <a href="#hero" class="menu-item active" aria-current="location">
+      <i data-lucide="home"></i>
+      <span class="desktop-menu-label">Top</span>
+      <span class="mobile-menu-label">トップ</span>
+    </a>
+    <a href="#about" class="menu-item">
+      <i data-lucide="user"></i>
+      <span class="desktop-menu-label">About</span>
+      <span class="mobile-menu-label">原体験</span>
+    </a>
+    <a href="#strengths" class="menu-item">
+      <i data-lucide="sparkles"></i>
+      <span class="desktop-menu-label">Strengths</span>
+      <span class="mobile-menu-label">強み</span>
+    </a>
+    <a href="#works" class="menu-item">
+      <i data-lucide="briefcase"></i>
+      <span class="desktop-menu-label">Works</span>
+      <span class="mobile-menu-label">実績</span>
+    </a>
+    <a href="#career-role" class="menu-item">
+      <i data-lucide="check-circle-2"></i>
+      <span class="desktop-menu-label">Role</span>
+      <span class="mobile-menu-label">役割</span>
+    </a>
+    <a href="#contact" class="menu-item">
+      <i data-lucide="link"></i>
+      <span class="desktop-menu-label">Links</span>
+      <span class="mobile-menu-label">リンク</span>
+    </a>
       
       <!-- Accessibility Controller (User Center) -->
       <div class="accessibility-panel">
@@ -104,8 +165,8 @@
           <span class="hero-title-main"><span>農との出会いを、</span></span>
           <span class="hero-title-accent">続く関わりに変える。</span>
         </h1>
-        <p class="hero-tagline" style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 1rem; border-left: 4px solid var(--brand-primary); padding-left: 0.8rem; line-height: 1.4;">
-          気になったことは、まずやってみる。
+        <p class="hero-tagline">
+          気になったことは、まず自分で体験する。
         </p>
         <p class="hero-subtitle">
           農業デイワークへの参加をきっかけに家庭菜園を始め、農との関わりを深めてきました。実際に体験する中で得た気づきと、これまで培った企画・情報発信・関係者調整の経験を生かし、農に関心を持つ人が自分に合った関わり方を見つけられる仕組みをつくりたいと考えています。
@@ -121,41 +182,6 @@
           <a href="#works" class="btn btn-primary">主な取り組みを見る <i data-lucide="arrow-down"></i></a>
           <a href="#about" class="btn btn-secondary">農業体験と原体験を見る <i data-lucide="heart"></i></a>
         </div>
-      </div>
-      <div class="hero-visual">
-        <!-- 5-Step Flowchart Graphic -->
-        <div class="flow-chart-graphic glass-card">
-          <div class="flow-chart-header">
-            <i data-lucide="git-commit"></i>
-            <span>PRACTICE FLOW | 行動のプロセス</span>
-          </div>
-          <ol class="flow-chart-steps">
-            <li class="flow-chart-step">
-              <span class="step-icon"><i data-lucide="play"></i></span>
-              <span class="step-text">自分で体験する</span>
-            </li>
-            <li class="flow-chart-step">
-              <span class="step-icon"><i data-lucide="lightbulb"></i></span>
-              <span class="step-text">気づきを見つける</span>
-            </li>
-            <li class="flow-chart-step">
-              <span class="step-icon"><i data-lucide="list-todo"></i></span>
-              <span class="step-text">課題を整理する</span>
-            </li>
-            <li class="flow-chart-step">
-              <span class="step-icon"><i data-lucide="brain"></i></span>
-              <span class="step-text">方法を考える</span>
-            </li>
-            <li class="flow-chart-step">
-              <span class="step-icon"><i data-lucide="message-circle"></i></span>
-              <span class="step-text">意見を取り入れて改善する</span>
-            </li>
-          </ol>
-        </div>
-        <!-- Mobile compact process flow -->
-        <p class="mobile-practice-flow">
-          体験 <span>→</span> 気づき <span>→</span> 整理 <span>→</span> 方法 <span>→</span> 改善
-        </p>
       </div>
     </div>
     <div class="scroll-indicator">
@@ -177,8 +203,8 @@
           <span class="section-tag">Background</span>
           <h2 class="section-title">農業を体験して分かったこと</h2>
           
-          <div class="vision-highlight-box" style="margin-bottom: 2rem;">
-            <p style="line-height: 1.6;">
+          <div class="vision-highlight-box">
+            <p>
               キウイ農家での作業を通じて、作物づくりには、消費者から見えにくい多くの工程や工夫があることを知りました。また、自分の手で作物づくりに関わる面白さも実感しました。
             </p>
           </div>
@@ -189,7 +215,7 @@
               <div class="timeline-content">
                 <h4>きっかけ</h4>
                 <p>
-                  「普段食べている野菜や果物は、どのように育てられているのだろう」という疑問から、農業のデイワークに参加しました。
+                  「普段食べている作物は、どのように育てられているのだろう」という疑問から、農業デイワークに参加しました。その経験をきっかけに、家庭菜園も始めました。
                 </p>
               </div>
             </div>
@@ -199,10 +225,13 @@
               <div class="timeline-content">
                 <h4>現場で知ったこと</h4>
                 <p>
-                  キウイ農家で雄花摘みや受粉作業を経験しました。雄花を約5時間摘んでも得られる花粉は数グラムほどであり、作物ができるまでの手間を実感しました。また、必要な日に1人来ないだけでも作業が大きく遅れると伺い、人手確保の難しさを知りました。
+                  キウイ農家で、雄花摘みや受粉作業を経験しました。雄花を約5時間摘んでも、得られた花粉は数グラムほどでした。一つの作物ができるまでに、多くの手間がかかることを実感しました。
+                </p>
+                <p>
+                  また、農作業には適した時期があり、必要な時期に人手を確保することの難しさも知りました。農家の方からは、予定していた人が1人来られないだけでも、作業が大きく遅れると伺いました。
                 </p>
                 <p class="nested-story">
-                  また、農家の方から、農業デイワークのアプリは文字が小さく見づらいと聞き、情報を届ける際には、年齢や利用環境への配慮も必要だと学びました。
+                  その中で、農家の方から「農業デイワークのアプリは文字が小さく見づらい」と聞きました。情報を届ける際には、年齢や利用環境への配慮も必要だと学びました。
                 </p>
               </div>
             </div>
@@ -229,8 +258,8 @@
             <span class="stat-label">花粉を確保するための雄花摘み</span>
             <span class="stat-source">キウイ農家での農業体験より</span>
           </div>
-          <div class="stat-card glass-card-accent" style="border-left: 3px solid var(--accent-color);">
-            <span class="stat-number" style="font-size: 1.15rem; font-weight: 800; line-height: 1.3; margin-bottom: 0.5rem; display: block; color: var(--accent-color);">1人欠けるだけでも作業が遅れる</span>
+          <div class="stat-card stat-card-warning glass-card-accent">
+            <span class="stat-number stat-number-text">1人欠けるだけでも作業が遅れる</span>
             <span class="stat-label">必要な時期の人手確保という課題</span>
             <span class="stat-source">現地での会話より</span>
           </div>
@@ -267,7 +296,7 @@
         </div>
         <div class="strength-card glass-card">
           <h4>4. 相手に合わせて伝え方を変える力</h4>
-          <p>相手の関心や理解度に合わせて、映像、Web、文章、説明方法を選びます。</p>
+          <p>相手の関心や理解度に合わせ、映像・Web・文章・口頭説明など、伝わりやすい方法を選びます。</p>
           <div class="strength-proof">関連する経験：フィッシング詐欺対策啓発動画、LITALICOワンダーでの指導</div>
         </div>
       </div>
@@ -292,7 +321,7 @@
           <div class="card-icon"><i data-lucide="users"></i></div>
           <h3 class="card-title">長崎大学オープンキャンパス公式Webアプリ</h3>
           <p class="card-text">
-            展示を探しにくいという課題から、スマホで場所と内容を確認できるWebアプリを企画しました。大学公式として採用され、2026年7月の公開に向けて準備を進めています。
+            オープンキャンパスで展示の場所や内容を探しにくいと感じ、Webアプリを企画しました。スマホで展示情報を確認できる仕組みとして大学公式に採用され、2026年7月の公開に向けて準備中です。
           </p>
           <div class="card-author-role"><strong>担当：</strong>課題発見、企画提案、画面設計、開発、教職員との調整</div>
           <div class="card-tags">
@@ -377,7 +406,7 @@
       </div>
       <div class="role-box glass-card-accent">
         <p>
-          将来は、農家や利用者の声をもとに課題を整理し、社内外の関係者と連携しながら、サービスや事業の改善を前に進めたいです。
+          将来は、農家や利用者の声をもとに課題を整理し、社内外の関係者と連携しながら、サービスや事業の改善を進めたいです。
         </p>
         <p>
           企画・運営、情報発信、実証などを状況に応じて組み合わせ、現場に合った方法を周囲と協力しながら形にしたいと考えています。Web開発や映像制作の経験も、課題を解決するための手段として生かします。
@@ -432,7 +461,7 @@
         </div>
       </div>
       
-      <div class="experience-insight-box" style="margin-top: 2rem;">
+      <div class="experience-insight-box">
         <h5>💡 仕事の経験から身についたこと</h5>
         <ul>
           <li><strong>飲食店アルバイト（牛右衛門・マルニ味噌ラーメン）</strong><br>
@@ -457,7 +486,7 @@
         </p>
       </div>
 
-      <div class="tech-stack-container glass-card" style="margin-top: 2rem;">
+      <div class="tech-stack-container glass-card">
         <div class="stack-grid">
           <div class="stack-category">
             <h4>企画・運営</h4>
@@ -500,40 +529,40 @@
       <div class="cta-box glass-card">
         <span class="section-tag">Portfolio Links</span>
         <h2>吉岡 晃基 の関連リンク</h2>
-        <p class="cta-text" style="max-width: 600px; margin: 0 auto 2rem auto; font-weight: 700; line-height: 1.8; color: var(--text-primary);">
+        <p class="cta-text cta-text-emphasis">
           農に関心を持つ人が、自分に合った一歩を踏み出せる企画や仕組みをつくりたいと考えています。
         </p>
         
         <div class="hr-links-footer">
-          <div style="text-align: left; max-width: 400px; margin: 0 auto; margin-bottom: 2rem;">
-            <h3 style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 0.5rem;">作品・掲載</h3>
-            <a href="https://www.youtube.com/watch?v=2JKH-jF41Kk" target="_blank" rel="noopener noreferrer" class="link-btn youtube-link" style="display: flex; margin-bottom: 0.5rem;">
+          <div class="footer-link-column">
+            <h3 class="footer-link-heading">作品・掲載</h3>
+            <a href="https://www.youtube.com/watch?v=2JKH-jF41Kk" target="_blank" rel="noopener noreferrer" class="link-btn footer-link youtube-link">
               <i data-lucide="play"></i> フィッシング詐欺対策啓発動画
-              <i data-lucide="external-link" aria-hidden="true" style="margin-left:auto; opacity:0.5;"></i>
+              <i data-lucide="external-link" aria-hidden="true" class="external-icon"></i>
               <span class="visually-hidden">新しいタブで開く</span>
             </a>
-            <a href="https://www.npa.go.jp/bureau/cyber/koho/news/2026318contest.html" target="_blank" rel="noopener noreferrer" class="link-btn" style="display: flex; margin-bottom: 0.5rem;">
+            <a href="https://www.npa.go.jp/bureau/cyber/koho/news/2026318contest.html" target="_blank" rel="noopener noreferrer" class="link-btn footer-link">
               <i data-lucide="shield-check"></i> 受賞掲載ページ
-              <i data-lucide="external-link" aria-hidden="true" style="margin-left:auto; opacity:0.5;"></i>
+              <i data-lucide="external-link" aria-hidden="true" class="external-icon"></i>
               <span class="visually-hidden">新しいタブで開く</span>
             </a>
-            <a href="https://apps.apple.com/jp/app/habitspark/id6762178668" target="_blank" rel="noopener noreferrer" class="link-btn" style="display: flex;">
+            <a href="https://apps.apple.com/jp/app/habitspark/id6762178668" target="_blank" rel="noopener noreferrer" class="link-btn footer-link">
               <i data-lucide="download"></i> HabitSpark (App Store)
-              <i data-lucide="external-link" aria-hidden="true" style="margin-left:auto; opacity:0.5;"></i>
+              <i data-lucide="external-link" aria-hidden="true" class="external-icon"></i>
               <span class="visually-hidden">新しいタブで開く</span>
             </a>
           </div>
 
-          <div style="text-align: left; max-width: 400px; margin: 0 auto;">
-            <h3 style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 0.5rem;">技術・記録</h3>
-            <a href="https://github.com/yoshiototora" target="_blank" rel="noopener noreferrer" class="link-btn github-link" style="display: flex; margin-bottom: 0.5rem;">
-              <i data-lucide="github"></i> GitHub Profile
-              <i data-lucide="external-link" aria-hidden="true" style="margin-left:auto; opacity:0.5;"></i>
+          <div class="footer-link-column">
+            <h3 class="footer-link-heading">技術・記録</h3>
+            <a href="https://github.com/yoshiototora" target="_blank" rel="noopener noreferrer" class="link-btn footer-link github-link">
+              <i data-lucide="code-2"></i> GitHub Profile
+              <i data-lucide="external-link" aria-hidden="true" class="external-icon"></i>
               <span class="visually-hidden">新しいタブで開く</span>
             </a>
-            <a href="https://qiita.com/yoshiototora" target="_blank" rel="noopener noreferrer" class="link-btn qiita-link" style="display: flex;">
+            <a href="https://qiita.com/yoshiototora" target="_blank" rel="noopener noreferrer" class="link-btn footer-link qiita-link">
               <i data-lucide="book-open"></i> Qiita (@yoshiototora)
-              <i data-lucide="external-link" aria-hidden="true" style="margin-left:auto; opacity:0.5;"></i>
+              <i data-lucide="external-link" aria-hidden="true" class="external-icon"></i>
               <span class="visually-hidden">新しいタブで開く</span>
             </a>
           </div>
@@ -551,7 +580,7 @@
       <div class="modal-header">
         <span class="modal-tag">大学公式採用・公開準備中</span>
         <h3 id="modal-oc-title">長崎大学オープンキャンパス公式Webアプリ</h3>
-        <p class="modal-sub">高校生向けマップ連動アプリの開発と、運営者の負担を減らす仕組みづくり</p>
+        <p class="modal-sub">高校生が展示を探しやすく、運営者も情報を更新しやすいWebアプリづくり</p>
       </div>
       <div class="modal-body">
         <div class="modal-meta-grid">
@@ -564,13 +593,15 @@
         </div>
 
         <h4>1. 背景・課題</h4>
-        <p>オープンキャンパスで研究室紹介を担当していた際、高校生から次に訪れる展示について尋ねられ、一緒に紙のマップを確認しました。その際、自分自身も目的の展示を探しにくいと感じました。また、直前に展示内容や場所が変更された際、紙のマップではすぐに対応できないことが課題でした。</p>
+        <p>オープンキャンパスで研究室紹介を担当していた際、高校生から次に訪れる展示について尋ねられました。一緒に紙のマップを確認する中で、自分自身も目的の展示を探しにくいと感じました。</p>
+        <p>また、展示内容や場所が直前に変わった場合、紙のマップではすぐに対応できないことも課題でした。</p>
         
         <h4>2. 自分の役割</h4>
-        <p>課題発見からアプリの企画提案、画面の設計、有志メンバーの調整、教職員との交渉、そして中心となる開発業務全般を担当しました。</p>
+        <p>課題発見からアプリの企画提案、画面設計、有志メンバーとの役割分担、教職員との調整、中心となる開発業務まで担当しました。</p>
         
         <h4>3. 取り組み</h4>
-        <p>スマートフォンで展示場所と内容をマップ上で確認できるWebアプリを企画しました。高校生が学内を歩きながら、現在地と近い展示をスムーズに探せるようにしました。また、毎年プログラムを書き直さなくても済むよう、Googleスプレッドシートの内容をアプリに反映できる仕組みにしました。これにより、専門知識がない担当者でも展示情報を手軽に更新・同期できます。</p>
+        <p>スマートフォンで展示場所と内容を確認できるWebアプリを企画しました。高校生が学内を歩きながら、現在地に近い展示を探せるようにしています。</p>
+        <p>また、毎年プログラムを書き直さなくても済むよう、Googleスプレッドシートの内容をアプリに反映できる仕組みにしました。専門知識がない担当者でも、展示情報を更新しやすくするためです。</p>
 
         <!-- SYSTEM DATA FLOW -->
         <div class="data-flow-container">
@@ -613,13 +644,13 @@
         </div>
 
         <h4>4. 周囲との関わり</h4>
-        <p>有志メンバー4名と役割を分担しながら開発を進める一方、大学の広報担当の教職員の方々と交渉を重ね、安全基準やデザインについて調整を行いました。後輩への技術的な引き継ぎができるようにドキュメント整備も自ら進めました。</p>
+        <p>有志メンバー4名と役割を分担しながら開発を進めました。大学の広報担当の教職員とも相談を重ね、安全基準やデザインについて調整しました。後輩へ技術を引き継げるよう、ドキュメント整備も進めました。</p>
 
         <h4>5. 結果</h4>
-        <p>この提案が大学公式の企画として採用されました。現在は2026年7月のオープンキャンパスでの本番公開に向けて、展示情報の整理や画面の調整、後輩に引き継ぎ可能な運用体制の構築を進めています。</p>
+        <p>この提案は大学公式の企画として採用されました。現在は2026年7月のオープンキャンパスでの公開に向けて、展示情報の整理、画面調整、後輩へ引き継げる運用体制づくりを進めています。</p>
 
         <h4>6. 学び</h4>
-        <p>開発するだけでなく、運用の負担を減らす設計や、異なる関係者（教職員や有志メンバー）と対話をして合意を形成しながら企画を進めることの大切さを学びました。</p>
+        <p>開発するだけでなく、運用しやすい設計が大切だと学びました。また、教職員や有志メンバーなど立場の異なる人と対話し、合意をつくりながら進める経験にもなりました。</p>
       </div>
     </div>
   </div>
@@ -631,7 +662,7 @@
       <div class="modal-header">
         <span class="modal-tag">サイバー警察局長賞受賞</span>
         <h3 id="modal-cg-title">フィッシング詐欺対策啓発動画</h3>
-        <p class="modal-sub">警察の防犯ボランティアにおける若年層向け啓発映像制作（最優秀作品・サイバー警察局長賞）</p>
+        <p class="modal-sub">若者に届く伝え方を考え、企画・構成・制作を主導した啓発映像（最優秀作品・サイバー警察局長賞）</p>
       </div>
       <div class="modal-body">
         <div class="modal-meta-grid">
@@ -675,25 +706,25 @@
         </div>
         
         <h4>1. 背景・課題</h4>
-        <p>警察のサイバー防犯ボランティア活動（ネットパトロール等）に参加する中で、同世代の若者にもフィッシング詐欺の被害が広がっていると知りました。ポスターやチラシだけでは興味を持ってもらいにくいため、普段SNSで流れてくる短い動画広告のような形で、危険性に気づく映像を作りたいと考えました。</p>
+        <p>警察のサイバー防犯ボランティア活動に参加する中で、同世代の若者にもフィッシング詐欺の被害が広がっていると知りました。</p>
+        <p>ポスターやチラシだけでは興味を持ってもらいにくいため、SNSで流れる短い動画広告のように、自然に危険性へ気づける映像を作りたいと考えました。</p>
         
         <h4>2. 自分の役割</h4>
-        <p>3名有志チームのディレクターとして、全体の企画立案、絵コンテ作成、進行管理、およびBlenderを用いた3Dアニメーション制作を担当しました。</p>
+        <p>有志3名のチームで、ディレクター兼メインクリエイターとして、全体の企画立案、絵コンテ作成、進行管理、Blenderを用いた3Dアニメーション制作を担当しました。</p>
         
         <h4>3. 取り組み</h4>
-        <p>若者が普段スマホで動画をスクロールする様子を意識し、親しみやすいキャラクターから始まり、途中で動画が巻き戻って「詐欺のポイント」を解説する30秒の構成をデザインしました。映像内の偽サイト画面はHTML/CSSで自作して撮影し、本当にある偽画面の質感を再現しました。</p>
+        <p>若者が普段スマホで動画を見ている場面を意識しました。親しみやすいキャラクターから始まり、途中で動画が巻き戻って「詐欺のポイント」を解説する30秒の構成にしています。</p>
+        <p>著作権や安全面の制約を考え、映像内の偽サイト画面はHTML/CSSで自作しました。現実感のある画面を再現しながら、実在するサービスと混同されない表現にしました。</p>
         
         <h4>4. 周囲との関わり</h4>
-        <p>チームメンバーとこまめに進捗を確認し合い、BGMのタイミングや背景美術の役割を分担しながら制作を進めました。ボランティア先の警察担当者からもフィードバックをいただき、防犯の意図が正しく伝わるか検証を重ねました。</p>
+        <p>チームメンバーとこまめに進捗を確認し合い、BGM、背景美術、3D制作などの役割を整理しながら進めました。ボランティア先の警察担当者からもフィードバックをいただき、防犯の意図が正しく伝わるか検証を重ねました。</p>
 
-        <h4>5. 結果</h4>
+        <h4>5. 結果・反応</h4>
         <p>警察庁主催「令和7年度サイバー防犯ボランティア広報啓発コンテスト」フィッシング対策部門の最優秀作品に選ばれ、サイバー警察局長賞を受賞しました。</p>
-
-        <h4>反応・補足</h4>
-        <p>身近な友人からも「かわいらしい見た目なのに、最後のメッセージでドキッとした」と言われ、狙い通り危険性を伝えることができました。</p>
+        <p>警察庁幹部からは「質の高い描画に加え、音声、効果音、全てにおいて手の込んだ丁寧な仕上がり」と評価されました。</p>
 
         <h4>6. 学び</h4>
-        <p>伝えたい防犯という堅いメッセージを、受け手の視点（同世代の若者が好むテイスト）に立って伝わる構成に工夫すること、およびチームの得意分野を組み合わせて形にすることの意義を学びました。</p>
+        <p>防犯という硬いテーマでも、受け手の視点に立てば伝え方を工夫できると学びました。正解のない課題に対して、対象者を考え、制約を乗り越え、チームで成果まで導く経験にもなりました。</p>
       </div>
     </div>
   </div>
@@ -704,8 +735,8 @@
       <button class="close-btn" onclick="closeModal('modal-res')" aria-label="閉じる">&times;</button>
       <div class="modal-header">
         <span class="modal-tag">卒論発表済・大学院で発展中</span>
-        <h3 id="modal-res-title">低コストな360°3D映像生成と境界破綻の低減</h3>
-        <p class="modal-sub">市販のカメラを用いて機材費を抑え、つなぎ目のズレが少ない360°3D映像を生成する研究</p>
+        <h3 id="modal-res-title">市販カメラでつくる低コストな360°3D映像</h3>
+        <p class="modal-sub">学部で基礎手法を構築・検証し、大学院で映像のつなぎ目に出る不自然さの低減へ発展させている研究</p>
       </div>
       <div class="modal-body">
         <div class="modal-meta-grid">
@@ -715,7 +746,7 @@
 
         <div class="project-links-container">
           <a href="https://github.com/yoshiototora/360-video-synthesis-v2" target="_blank" rel="noopener noreferrer" class="link-btn github-link">
-            <i data-lucide="github"></i> 研究コードを見る
+            <i data-lucide="code-2"></i> 研究コードを見る
             <i data-lucide="external-link" aria-hidden="true" style="margin-left:5px; opacity:0.5; width:14px; height:14px;"></i>
             <span class="visually-hidden">新しいタブで開く</span>
           </a>
@@ -723,34 +754,55 @@
             <summary style="cursor:pointer; font-size:0.75rem; color:var(--text-secondary); margin-top:0.3rem;">技術的な詳細リポジトリを見る</summary>
             <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem;">
               <a href="https://github.com/yoshiototora/vr-ssq-evaluation" target="_blank" rel="noopener noreferrer" class="link-btn github-link">
-                <i data-lucide="github"></i> 立体映像評価用
+                <i data-lucide="code-2"></i> 立体映像評価用
                 <span class="visually-hidden">新しいタブで開く</span>
               </a>
               <a href="https://github.com/yoshiototora/Quest3S_VideoTest" target="_blank" rel="noopener noreferrer" class="link-btn github-link">
-                <i data-lucide="github"></i> Quest 3S 表示テスト用
+                <i data-lucide="code-2"></i> Quest 3S 表示テスト用
                 <span class="visually-hidden">新しいタブで開く</span>
               </a>
             </div>
           </details>
         </div>
+
+        <div class="research-highlights" aria-label="研究の要点">
+          <div class="research-highlight">
+            <span>Bachelor</span>
+            <strong>基礎手法を構築・卒論発表</strong>
+          </div>
+          <div class="research-highlight">
+            <span>Master</span>
+            <strong>深度推定・前景分離で改善</strong>
+          </div>
+          <div class="research-highlight">
+            <span>Impact</span>
+            <strong>教育・観光・文化財への応用可能性</strong>
+          </div>
+        </div>
         
         <h4>1. 背景・課題</h4>
-        <p>学部の卒業研究では、市販の360度カメラを用いて、機材費を抑えながら360度3D映像を生成する基礎手法を構築し、卒業論文として発表しました。一方、人物がカメラ間の境界を横切る際に、輪郭が崩れる課題が残りました。そこで大学院では、深度推定と前景分離を加え、人物の境界破綻を抑える手法へ発展させています。</p>
+        <p>離れた場所の様子を、その場にいるような感覚で伝える360度3D映像に魅力を感じ、研究テーマに選びました。</p>
+        <p>一方で、専用の360度3Dカメラは複数のレンズや高度な処理機構を備えているため非常に高価です。一般の人が気軽に使いにくいことが課題だと考えています。</p>
+        <p>学部の卒業研究では、市販の360度カメラを使い、高価な専用機材に頼らず360度3D映像を生成する基礎手法を構築・検証しました。この成果を卒業論文として発表しています。</p>
+        <p>その中で、人物の輪郭が映像のつなぎ目で途切れたり、不自然に変形したりする課題が残りました。大学院では、深度推定と前景分離を用いて、人物と背景を分けて処理する手法へ発展させています。</p>
+        <p>将来的には、教育、観光、文化財の記録などへの応用が期待できると考えています。</p>
         
         <h4>2. 自分の役割</h4>
-        <p>研究テーマの設定から、合成アルゴリズムの設計・プログラミング、Unityを用いたHMD（Quest 3S）表示テスト環境の構築、比較実験用のカメラ固定台の設計・3Dプリントまで一貫して行っています。</p>
+        <p>研究テーマの設定から、合成アルゴリズムの設計・プログラミング、Unityを用いたHMD（Quest 3S）表示テスト環境の構築まで行っています。比較実験で使うカメラ固定台の設計と3Dプリントも担当しています。</p>
         
         <h4>3. 取り組み</h4>
-        <p>少ないレンズ数で撮影する際、レンズのつなぎ目部分で映像が途切れたり重なったりする「境界破綻」が起きてしまいます。これに対し、映像の中の人物と背景を自動で区別して個別に合成処理を施す手法を考案しました。また、撮影時の物理的なブレや配置ズレによるノイズをなくすため、3Dプリンターで自作した専用のカメラ固定台を用いて撮影条件を均一に揃えました。</p>
+        <p>研究でこだわっているのは、課題を要素に分けて解決方法を考えることです。複数の映像をつなぐ際、人物の輪郭が映像のつなぎ目で途切れたり、不自然に変形したりする課題がありました。</p>
+        <p>そこで、人物と背景に同じ処理をしている点に着目しました。両者を分け、それぞれに適した方法でつなぐ手法を考案しています。</p>
+        <p>また、撮影時のブレや配置ズレを減らすため、3Dプリンターで自作したカメラ固定台を使い、撮影条件を揃えました。</p>
         
         <h4>4. 周囲との関わり</h4>
         <p>研究を進める上で、指導教員やゼミのメンバーに進捗を共有し、映像の違和感やつなぎ目の見え方について意見をもらいました。得られたアドバイスをもとに、人物の輪郭部分の補正アルゴリズムを改良しました。</p>
 
         <h4>5. 結果</h4>
-        <p>同一の映像と実行環境で比較し、人物と背景を分けて扱う提案手法が、従来手法より処理時間を短縮できることを確認しました。また、被写体の輪郭を保ちながら、境界の不自然さを抑えられることも確認しました。現在は、Quest 3Sを用いた視聴比較実験を進めています。</p>
+        <p>人物と背景を分けて扱うことで、人物の形を保ちながら、境目をより自然に見せられることを確認しました。現在は、処理時間や映像品質を比較検証しながら、Quest 3Sを用いた視聴比較実験も進めています。</p>
 
         <h4>6. 学び</h4>
-        <p>課題に対して原因を仮説検証し、ソフト（プログラム）とハード（固定台の自作）の両面からアプローチすることの有効性を学びました。また、ソフトウェア上の処理だけでなく撮影条件まで整えることで、結果を比較しやすい実験環境を構築できると実感しました。</p>
+        <p>課題を捉え直し、異なる視点から解決策を考える大切さを学びました。また、ソフトウェア上の処理だけでなく撮影条件まで整えることで、結果を比較しやすい実験環境を構築できると実感しました。</p>
       </div>
     </div>
   </div>
@@ -780,7 +832,7 @@
             <summary style="cursor:pointer; font-size:0.75rem; color:var(--text-secondary); margin-top:0.3rem;">開発コードを見る</summary>
             <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem;">
               <a href="https://github.com/yoshiototora/GoalTracker" target="_blank" rel="noopener noreferrer" class="link-btn github-link">
-                <i data-lucide="github"></i> GitHub (GoalTracker)
+                <i data-lucide="code-2"></i> GitHub (GoalTracker)
                 <span class="visually-hidden">新しいタブで開く</span>
               </a>
             </div>
@@ -788,22 +840,24 @@
         </div>
         
         <h4>1. 背景・課題</h4>
-        <p>自分自身、日々の習慣を始めようとしても、一度できない日があるとそのまま挫折してやめてしまうことがありました。世の中の多くの習慣化アプリは「毎日続けること」を重視するため、失敗した時点で意欲が下がりやすいことが課題でした。</p>
+        <p>自分自身、新しい習慣を始めても、一度できない日があるとそのまま挫折してしまうことがありました。継続日数を重視する仕組みでは、一度できなかったときに意欲が下がりやすいと感じました。</p>
         
         <h4>2. 自分の役割</h4>
         <p>自身の悩みからアプリを企画し、UI/UX設計、データベースの設計、SwiftによるiOSアプリ開発、App Storeでの配信、リリース後のアップデート保守まで、個人として一貫して行っています。</p>
         
         <h4>3. 取り組み</h4>
-        <p>目標を月・週・日の3段階に分解できるようにし、失敗した日はKPT（Keep/Problem/Try）で振り返れる仕組みを作りました。さらに、App Storeのレビューで「できなかったタスクを翌日に引き継ぎたい」という意見をいただき、単純な繰り越しではなく、3日連続で未完了の場合は目標設定自体を見直せる仕組みを追加しました。</p>
+        <p>目標を月・週・日の3段階に分けられるようにし、失敗した日はKPT（Keep/Problem/Try）で振り返れる仕組みを作りました。</p>
+        <p>さらに、App Storeのレビューで「できなかったタスクを翌日に引き継ぎたい」という意見をいただきました。単純に繰り越すだけでなく、3日連続で未完了になった場合に、目標の設定を見直すよう促す仕組みを追加しました。</p>
         
         <h4>4. 周囲との関わり（公開後のユーザーの声）</h4>
-        <p>App Storeでの公開後、実際にアプリを使った方々のレビューに目を通し、直接意見をもらいました。自分だけでは想定していなかった「未完了タスクの翌日持ち越し」というニーズに対し、単に要望通りに引き継ぐだけでなく、挫折を防ぐための独自の緩和ルール（3日連続未完了時に警告）を提案して実装しました。</p>
+        <p>App Storeでの公開後、実際にアプリを使った方々のレビューに目を通し、直接意見ももらいました。</p>
+        <p>自分だけでは想定していなかった「未完了タスクの翌日持ち越し」というニーズに対し、挫折を防ぎ、再挑戦しやすい仕組みを考えました。3日連続で未完了になった場合に、目標の設定を見直すよう促す形で実装しています。</p>
 
         <h4>5. 結果</h4>
-        <p>App Storeでの公開以来、利用者からレビューをいただき、その意見を反映したバージョンアップを継続的に実施しています。</p>
+        <p>App Storeでの公開後、利用者からレビューをいただきました。現在も、その意見を反映したアップデートを継続しています。</p>
 
         <h4>6. 学び</h4>
-        <p>自分の手で企画から公開までの一連の流れを進める責任感を体験し、かつユーザーの声（フィードバック）を受け止めて柔軟にプロダクトを改善・アップデートするプロセスの重要性を学びました。</p>
+        <p>企画から公開までの一連の流れを自分の手で進める責任感を学びました。また、ユーザーの声を受け止め、柔軟にプロダクトを改善することの重要性も実感しました。</p>
       </div>
     </div>
   </div>
