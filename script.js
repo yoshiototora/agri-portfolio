@@ -118,7 +118,7 @@ function getFocusableElements(container) {
 }
 
 function setPageInert(isInert) {
-  document.querySelectorAll('#ud-header, .side-menu, main > section').forEach((element) => {
+  document.querySelectorAll('.skip-to-main, #ud-header, .side-menu, main > section').forEach((element) => {
     element.inert = isInert;
     if (isInert) {
       element.setAttribute('inert', '');
