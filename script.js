@@ -22,33 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   }
 
-  // Scrollspy for navigation active state
-  const navItems = [...document.querySelectorAll('.menu-item')];
-  const sections = navItems
-    .map((item) => document.querySelector(item.getAttribute('href')))
-    .filter(Boolean);
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      if (window.pageYOffset >= (sectionTop - 150)) {
-        current = section.getAttribute('id');
-      }
-    });
-
-    navItems.forEach(item => {
-      const isCurrent = item.getAttribute('href').slice(1) === current;
-      
-      item.classList.toggle('active', isCurrent);
-      
-      if (isCurrent) {
-        item.setAttribute('aria-current', 'location');
-      } else {
-        item.removeAttribute('aria-current');
-      }
-    });
-  });
+  window.addEventListener('scroll', updateScrollSpy, { passive: true });
+  window.addEventListener('resize', updateScrollSpy);
+  updateScrollSpy();
 
   // Modal outside click listener
   window.addEventListener('click', (event) => {
@@ -100,6 +76,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
+
+function updateScrollSpy() {
+  const visibleNavItems = [...document.querySelectorAll('.menu-item')]
+    .filter((item) => getComputedStyle(item).display !== 'none');
+
+  const sections = visibleNavItems
+    .map((item) => document.querySelector(item.getAttribute('href')))
+    .filter(Boolean);
+
+  let current = sections[0]?.id || '';
+
+  sections.forEach((section) => {
+    if (window.scrollY >= section.offsetTop - 150) {
+      current = section.id;
+    }
+  });
+
+  document.querySelectorAll('.menu-item').forEach((item) => {
+    const isVisible = getComputedStyle(item).display !== 'none';
+    const isCurrent = isVisible && item.getAttribute('href').slice(1) === current;
+
+    item.classList.toggle('active', isCurrent);
+
+    if (isCurrent) {
+      item.setAttribute('aria-current', 'location');
+    } else {
+      item.removeAttribute('aria-current');
+    }
+  });
+}
 
 function getFocusableElements(container) {
   const candidates = container.querySelectorAll('button, [href], input, select, textarea, [tabindex="0"]');
