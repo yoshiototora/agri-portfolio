@@ -9,7 +9,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Noto+Sans+JP:wght@300;400;500;700;800;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
   
   <!-- Lucide Icons (CDN) -->
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
@@ -58,42 +58,42 @@
  
   <!-- Navigation Menu -->
   <nav class="side-menu" aria-label="ページ内ナビゲーション">
-    <a href="#hero" class="menu-item active" aria-current="location">
+    <a href="#hero" class="menu-item active" aria-label="トップ" aria-current="location">
       <i data-lucide="home"></i>
       <span class="desktop-menu-label">Top</span>
       <span class="mobile-menu-label">トップ</span>
     </a>
-    <a href="#about" class="menu-item">
+    <a href="#about" class="menu-item" aria-label="原体験">
       <i data-lucide="user"></i>
       <span class="desktop-menu-label">About</span>
       <span class="mobile-menu-label">原体験</span>
     </a>
-    <a href="#career-role" class="menu-item">
+    <a href="#career-role" class="menu-item" aria-label="目標">
       <i data-lucide="check-circle-2"></i>
       <span class="desktop-menu-label">Vision</span>
       <span class="mobile-menu-label">目標</span>
     </a>
-    <a href="#strengths" class="menu-item mobile-secondary">
+    <a href="#strengths" class="menu-item mobile-secondary" aria-label="強み">
       <i data-lucide="sparkles"></i>
       <span class="desktop-menu-label">Strengths</span>
       <span class="mobile-menu-label">強み</span>
     </a>
-    <a href="#works" class="menu-item">
+    <a href="#works" class="menu-item" aria-label="実績">
       <i data-lucide="briefcase"></i>
       <span class="desktop-menu-label">Works</span>
       <span class="mobile-menu-label">実績</span>
     </a>
-    <a href="#profile-details" class="menu-item mobile-secondary">
+    <a href="#profile-details" class="menu-item mobile-secondary" aria-label="経歴">
       <i data-lucide="id-card"></i>
       <span class="desktop-menu-label">Profile</span>
       <span class="mobile-menu-label">経歴</span>
     </a>
-    <a href="#skills" class="menu-item mobile-secondary">
+    <a href="#skills" class="menu-item mobile-secondary" aria-label="スキル">
       <i data-lucide="wrench"></i>
       <span class="desktop-menu-label">Skills</span>
       <span class="mobile-menu-label">スキル</span>
     </a>
-    <a href="#contact" class="menu-item">
+    <a href="#contact" class="menu-item" aria-label="関連リンク">
       <i data-lucide="link"></i>
       <span class="desktop-menu-label">Links</span>
       <span class="mobile-menu-label">リンク</span>
@@ -220,10 +220,10 @@
       </div>
       <div class="role-box glass-card-accent">
         <p>
-          私自身、農業デイワークをきっかけに農への関心が広がる一方、農家には必要な時期に人手を確保する難しさがあり、関わる側にも自分に合った入口や続け方が分かりにくいという課題があると感じました。
+          私自身、農業デイワークをきっかけに農への関心が広がりました。一方、訪れた農家では必要な時期に人手を確保する難しさがあり、私自身も家庭菜園を始めた後、何をいつ行えばよいか分からず、関わりを続ける難しさを感じました。
         </p>
         <p>
-          そこで、農家と農に関心を持つ人の声をつなぎ、必要な人と機会が適切に出会える仕組みをつくりたいと考えています。仕事では、現場の声をもとに企画、実証、改善を重ね、将来的には農業や地域の新たな選択肢を生み出す事業を主導したいです。
+          そこで、農家が必要な時期に協力者と出会い、農に関心を持つ人が自分に合った入口や続け方を見つけられる仕組みをつくりたいと考えています。仕事では、まず現場で農家や利用者と向き合い、課題の把握から実行、改善まで責任を持って進めます。将来的には、農業や地域に新たな選択肢を生み出す事業を主導したいです。
         </p>
       </div>
     </div>
@@ -246,7 +246,7 @@
           <div class="strength-proof">関連する経験：農業デイワーク、オープンキャンパスでの課題発見</div>
         </div>
         <div class="strength-card glass-card">
-          <h3>2. 体験や複数の声を整理し、企画に変える</h3>
+          <h3>2. 体験や情報を整理し、企画に変える</h3>
           <p>体験したことや周囲から得た意見の要点を整理し、企画や構成に落とし込みます。</p>
           <div class="strength-proof">関連する経験：大学公式Webアプリ、啓発動画の構成設計</div>
         </div>
@@ -256,9 +256,9 @@
           <div class="strength-proof">関連する経験：教職員・警察担当者からのフィードバック、利用者の声を反映したHabitSparkの改善</div>
         </div>
         <div class="strength-card glass-card">
-          <h3>4. 相手に届き、継続して使える形にする</h3>
-          <p>相手の関心や利用環境を踏まえ、伝わりやすく、公開後や翌年以降も続けられる形へ整えます。</p>
-          <div class="strength-proof">関連する経験：公式Webアプリの運用設計、HabitSparkの継続改善</div>
+          <h3>4. 相手に届き、運用できる形に整える</h3>
+          <p>相手の関心や利用環境に合わせて伝え方を選び、運営する人が継続して扱える形まで整えます。</p>
+          <div class="strength-proof">関連する経験：啓発動画の伝え方設計、公式Webアプリの運用設計</div>
         </div>
       </div>
     </div>
@@ -279,9 +279,9 @@
       <div class="works-grid">
         <!-- Work 1 -->
         <article class="card work-card">
-          <div class="card-badge">大学公式採用・公開準備中</div>
+          <div class="card-badge">大学公式企画として採用・2026年7月公開予定</div>
           <div class="card-icon"><i data-lucide="users"></i></div>
-          <h3 class="card-title">長崎大学オープンキャンパス公式Webアプリ</h3>
+          <h4 class="card-title">長崎大学オープンキャンパス公式Webアプリ</h4>
           <p class="card-text">
             オープンキャンパスで展示の場所や内容を探しにくいと感じ、Webアプリを企画しました。スマホで展示情報を確認できる仕組みとして大学公式に採用され、2026年7月の公開に向けて準備中です。
           </p>
@@ -300,7 +300,7 @@
         <article class="card work-card">
           <div class="card-badge">サイバー警察局長賞受賞</div>
           <div class="card-icon"><i data-lucide="award"></i></div>
-          <h3 class="card-title">フィッシング詐欺対策啓発動画</h3>
+          <h4 class="card-title">フィッシング詐欺対策啓発動画</h4>
           <p class="card-text">
             同世代の若者にもフィッシング詐欺の被害が広がっていることから、30秒の啓発動画を企画しました。企画・構成・映像制作を主導し、フィッシング対策部門の最優秀作品に選ばれました。
           </p>
@@ -322,9 +322,9 @@
         <article class="card work-card">
           <div class="card-badge">卒論発表済・大学院で発展中</div>
           <div class="card-icon"><i data-lucide="scan-line"></i></div>
-          <h3 class="card-title">低コストな360度3D映像生成の研究</h3>
+          <h4 class="card-title">低コストな360度3D映像生成の研究</h4>
           <p class="card-text">
-            市販の360度カメラを用い、低コストで立体映像を生成する手法を研究しています。学部では映像のつなぎ目で人物の輪郭が崩れる問題を抑える手法を構築・検証し、現在は大学院で視差条件の最適化に取り組んでいます。
+            市販の360度カメラを用い、低コストで360度3D映像を生成する手法を研究しています。学部では映像のつなぎ目で人物の輪郭が崩れる問題を抑える手法を構築・検証し、現在は大学院で視差条件の最適化に取り組んでいます。
           </p>
           <div class="card-author-role"><strong>体制：</strong>個人研究<br><strong>担当：</strong>手法設計、実装、実験環境構築、比較評価</div>
           <div class="card-tags">
@@ -341,7 +341,7 @@
         <article class="card work-card">
           <div class="card-badge">App Store公開・継続改善中</div>
           <div class="card-icon"><i data-lucide="smartphone"></i></div>
-          <h3 class="card-title">iOSアプリ「HabitSpark」</h3>
+          <h4 class="card-title">iOSアプリ「HabitSpark」</h4>
           <p class="card-text">
             習慣が続かなかった自身の経験からアプリを企画し、公開後は利用者のレビューをもとに機能を改善しました。企画から公開後の改善まで一貫して担当しています。
           </p>
@@ -374,8 +374,9 @@
           <h3>学歴</h3>
           <div class="responsive-table-wrapper">
             <table class="profile-table">
+              <caption class="visually-hidden">学歴</caption>
               <thead>
-                <tr><th>年月</th><th>内容</th></tr>
+                <tr><th scope="col">年月</th><th scope="col">内容</th></tr>
               </thead>
               <tbody>
                 <tr><td>2022年3月</td><td>福岡県立福岡中央高等学校 卒業</td></tr>
@@ -389,15 +390,16 @@
 
         <!-- Experience Table -->
         <div class="table-box glass-card wide-table-box">
-          <h3>職歴（アルバイト）</h3>
+          <h3>アルバイト経験</h3>
           <div class="responsive-table-wrapper">
             <table class="profile-table">
+              <caption class="visually-hidden">アルバイト経験</caption>
               <thead>
-                <tr><th>年月</th><th>内容</th></tr>
+                <tr><th scope="col">年月</th><th scope="col">内容</th></tr>
               </thead>
               <tbody>
                 <tr><td>2022年11月 〜 2025年1月</td><td>株式会社牛右衛門 酛蔵庄屋（ホールスタッフ）</td></tr>
-                <tr><td>2023年10月 〜 現在</td><td>マルニ味噌ラーメン（ホール＆キッチン）</td></tr>
+                <tr><td>2023年10月 〜 現在</td><td>マルニ味噌ラーメン（ホール・キッチン）</td></tr>
                 <tr><td>2026年2月 〜 現在</td><td>LITALICOワンダー（プログラミングインストラクター）</td></tr>
               </tbody>
             </table>
@@ -476,7 +478,7 @@
         <h2>吉岡 晃基 の関連リンク</h2>
         <p class="cta-text cta-text-emphasis">
           農業を知り、体験し、自分に合った形で関わる。<br>
-          そうした一歩を、農家の人手や地域の機会にもつながる仕組みに育て、農業の新たな選択肢を広げたいと考えています。
+          そうした一歩を、農家の人手確保や地域との継続的な関わりにつなげ、農業の新たな選択肢を広げたいと考えています。
         </p>
         
         <div class="hr-links-footer">
@@ -524,7 +526,7 @@
     <div class="modal-content glass-card">
       <button type="button" class="close-btn" onclick="closeModal('modal-oc')" aria-label="閉じる">&times;</button>
       <div class="modal-header">
-        <span class="modal-tag">大学公式採用・公開準備中</span>
+        <span class="modal-tag">大学公式企画として採用・2026年7月公開予定</span>
         <h3 id="modal-oc-title">長崎大学オープンキャンパス公式Webアプリ</h3>
         <p class="modal-sub">高校生が展示を探しやすく、運営者も情報を更新しやすいWebアプリづくり</p>
       </div>
@@ -546,7 +548,7 @@
         <p>課題発見からアプリの企画提案、画面設計、有志メンバーとの役割分担、教職員との調整、中心となる開発業務まで担当しました。</p>
         
         <h4>3. 取り組み</h4>
-        <p>スマートフォンで展示場所と内容を確認できるWebアプリを企画しました。高校生が学内を歩きながら、現在地に近い展示を探せるようにしています。</p>
+        <p>スマートフォンで展示場所と内容を確認できるWebアプリを企画しました。高校生が学内を歩きながら、地図上で近くの展示を探せるようにしています。</p>
         <p>また、毎年プログラムを書き直さなくても済むよう、Googleスプレッドシートの内容をアプリに反映できる仕組みにしました。専門知識がない担当者でも、展示情報を更新しやすくするためです。</p>
 
         <!-- Information update flow -->
@@ -566,7 +568,7 @@
             <div class="flow-step">
               <div class="step-num">2</div>
               <div class="step-content">
-                <h5>アプリへ自動反映</h5>
+                <h5>アプリへ反映</h5>
                 <p>更新の手間を減らす</p>
               </div>
             </div>
@@ -582,7 +584,7 @@
         </div>
 
         <h4>4. 周囲との関わり</h4>
-        <p>有志メンバー4名と役割を分担しながら開発を進めました。大学の広報を担当する教職員とも相談を重ね、安全基準やデザインについて調整しました。後輩へ技術を引き継げるよう、ドキュメント整備も進めました。</p>
+        <p>4名の有志チームで役割を分担しながら開発を進めました。大学の広報を担当する教職員とも相談を重ね、安全基準やデザインについて調整しました。後輩へ技術を引き継げるよう、ドキュメント整備も進めました。</p>
 
         <h4>5. 結果</h4>
         <p>この提案は大学公式の企画として採用されました。現在は2026年7月のオープンキャンパスでの公開に向けて、展示情報の整理、画面調整、後輩へ引き継げる運用体制づくりを進めています。</p>
@@ -659,7 +661,7 @@
 
         <h4>5. 結果・反応</h4>
         <p>警察庁主催「令和7年度サイバー防犯ボランティア広報啓発コンテスト」フィッシング対策部門の最優秀作品に選ばれ、サイバー警察局長賞を受賞しました。</p>
-        <p>警察庁幹部からは「質の高い描画に加え、音声、効果音、全てにおいて手の込んだ丁寧な仕上がり」と評価されました。</p>
+        <p>審査講評では、描画だけでなく、音声や効果音を含む丁寧な仕上がりが評価されました。</p>
 
         <h4>6. 学び</h4>
         <p>防犯という硬いテーマでも、受け手の視点に立てば伝え方を工夫できると学びました。正解のない課題に対して、対象者を考え、制約を乗り越え、チームで成果まで導く経験にもなりました。</p>
@@ -719,7 +721,7 @@
         </div>
         
         <h4>1. 背景・課題</h4>
-        <p>離れた場所の様子を、その場にいるような臨場感で伝えられる360度3D映像に可能性を感じ、研究テーマに選びました。一方、撮影には多くのレンズを備えた高価な専用機材が必要であり、利用できる場面が限られています。</p>
+        <p>離れた場所の様子を、その場にいるような臨場感で伝えられる360度3D映像に可能性を感じ、研究テーマに選びました。一方、高品質な360度3D映像の撮影には、多数のレンズを備えた高価な専用機材が用いられることが多く、利用できる場面が限られています。</p>
         <p>そこで、市販の360度カメラを用いて、機材費を抑えながら立体的な360度映像を生成することを目指しています。</p>
         
         <h4>2. 自分の役割</h4>
@@ -766,7 +768,7 @@
             <summary style="cursor:pointer; font-size:0.75rem; color:var(--text-secondary); margin-top:0.3rem;">開発コードを見る</summary>
             <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem;">
               <a href="https://github.com/yoshiototora/GoalTracker" target="_blank" rel="noopener noreferrer" class="link-btn github-link">
-                <i data-lucide="code-2"></i> GitHub (GoalTracker)
+                <i data-lucide="code-2"></i> 開発リポジトリ（旧称 GoalTracker）
                 <span class="visually-hidden">新しいタブで開く</span>
               </a>
             </div>
@@ -783,7 +785,7 @@
         <p>目標を月・週・日の3段階に分けられるようにし、失敗した日はKPT（Keep/Problem/Try）で振り返れる仕組みを作りました。</p>
         <p>レビューで寄せられた意見をもとに、未完了のタスクを翌日に持ち越せる機能も追加しました。</p>
         
-        <h4>4. 周囲との関わり（公開後のユーザーの声）</h4>
+        <h4>4. 公開後の利用者の声と改善</h4>
         <p>App Storeのレビューや利用者からの意見を通じて、自分だけでは想定していなかった「未完了のタスクを翌日に持ち越したい」というニーズを把握しました。</p>
         <p>要望をそのまま機能にするのではなく、習慣の挫折を防ぐというアプリの目的に照らして検討し、未完了が続いた場合には目標設定の見直しを促す導線も加えました。</p>
 
@@ -791,7 +793,7 @@
         <p>利用者の要望を受け、未完了タスクの持ち越し機能と、目標の見直しを促す導線を追加しました。現在もApp Storeで公開し、利用者の声をもとに改善を続けています。</p>
 
         <h4>6. 学び</h4>
-        <p>企画から公開までの一連の流れを自分の手で進める責任感を学びました。また、ユーザーの声を受け止め、柔軟にプロダクトを改善することの重要性も実感しました。</p>
+        <p>企画から公開後の改善まで一貫して担う中で、自ら判断して最後まで進める力を培いました。また、利用者の要望をそのまま採用するのではなく、サービスの目的に照らして取捨選択する重要性を学びました。</p>
       </div>
     </div>
   </div>

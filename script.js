@@ -4,11 +4,27 @@
 
 let previousFocusedElement = null;
 
+function getStoredPreference(key, fallback) {
+  try {
+    return localStorage.getItem(`portfolio-${key}`) || localStorage.getItem(key) || fallback;
+  } catch (error) {
+    return fallback;
+  }
+}
+
+function setStoredPreference(key, value) {
+  try {
+    localStorage.setItem(`portfolio-${key}`, value);
+  } catch (error) {
+    // Storage can be unavailable in restricted browsing contexts.
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize accessibility settings from localStorage
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  const savedSize = localStorage.getItem('size') || 'normal';
-  const savedFont = localStorage.getItem('font') || 'standard';
+  const savedTheme = getStoredPreference('theme', 'light');
+  const savedSize = getStoredPreference('size', 'normal');
+  const savedFont = getStoredPreference('font', 'standard');
 
   document.documentElement.setAttribute('data-theme', savedTheme);
   document.documentElement.setAttribute('data-size', savedSize);
@@ -108,12 +124,16 @@ function updateScrollSpy() {
 }
 
 function getFocusableElements(container) {
-  const candidates = container.querySelectorAll('button, [href], input, select, textarea, [tabindex="0"]');
+  const candidates = container.querySelectorAll(
+    'a[href], button:not([disabled]), input:not([disabled]), ' +
+    'select:not([disabled]), textarea:not([disabled]), summary, ' +
+    '[tabindex]:not([tabindex="-1"]), [contenteditable="true"]'
+  );
   return [...candidates].filter((element) => {
     const isHiddenDetailsContent = element.closest('details:not([open])');
-    const isDisabled = element.disabled || element.getAttribute('aria-hidden') === 'true';
+    const isHidden = element.getAttribute('aria-hidden') === 'true';
     const isVisible = Boolean(element.offsetWidth || element.offsetHeight || element.getClientRects().length);
-    return !isHiddenDetailsContent && !isDisabled && isVisible;
+    return !isHiddenDetailsContent && !isHidden && isVisible;
   });
 }
 
@@ -171,7 +191,7 @@ function syncAccessibilityUI(theme, size, font) {
 // Change Font Size (Applied to HTML document element for rem scaling)
 function changeSize(size) {
   document.documentElement.setAttribute('data-size', size);
-  localStorage.setItem('size', size);
+  setStoredPreference('size', size);
   
   // Update Active Button State
   document.querySelectorAll('[id^="btn-size-"]').forEach(btn => {
@@ -188,7 +208,7 @@ function changeSize(size) {
 // Change Font Type (Applied to HTML document element)
 function changeFont(font) {
   document.documentElement.setAttribute('data-font', font);
-  localStorage.setItem('font', font);
+  setStoredPreference('font', font);
   
   // Update Active Button State
   document.querySelectorAll('[id^="btn-font-"]').forEach(btn => {
@@ -207,7 +227,7 @@ function toggleTheme() {
   const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
   const newTheme = currentTheme === 'light' ? 'dark' : 'light';
   document.documentElement.setAttribute('data-theme', newTheme);
-  localStorage.setItem('theme', newTheme);
+  setStoredPreference('theme', newTheme);
   
   // Update Theme Icon
   const themeIcon = document.getElementById('theme-icon');
@@ -233,6 +253,8 @@ function openModal(id) {
   const modal = document.getElementById(id);
   if (modal) {
     previousFocusedElement = document.activeElement;
+    modal.scrollTop = 0;
+    modal.querySelector('.modal-body')?.scrollTo(0, 0);
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     setPageInert(true);
@@ -258,6 +280,7 @@ function closeModal(id) {
     if (previousFocusedElement) {
       previousFocusedElement.focus();
     }
+    previousFocusedElement = null;
   }
 }
 
